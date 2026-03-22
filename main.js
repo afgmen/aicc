@@ -89,51 +89,53 @@ function toggleMenu() {
     btn.classList.toggle('open');
 }
 
-// Close menu when a nav link is clicked
-document.getElementById('navLinks').querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function() {
-        document.getElementById('navLinks').classList.remove('open');
-        document.getElementById('hamburger').classList.remove('open');
-    });
-});
-
-// Copyright year
-document.getElementById('copyrightYear').textContent = new Date().getFullYear();
-
-// Initialize form
-updateFormLang('vi');
-
-// ─── Form Submission ───
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const data = new FormData(this);
-
-    const subject = encodeURIComponent('AICC.vn Demo Request - ' + data.get('company'));
-    const body = encodeURIComponent(
-        'Name: ' + data.get('name') + '\n' +
-        'Company: ' + data.get('company') + '\n' +
-        'Email: ' + data.get('email') + '\n' +
-        'Phone: ' + (data.get('phone') || 'N/A') + '\n' +
-        'Interest: ' + data.get('interest') + '\n' +
-        'Message: ' + (data.get('message') || 'N/A')
-    );
-
-    window.location.href = 'mailto:sales@aicc.vn?subject=' + subject + '&body=' + body;
-    showSuccess();
-});
-
 function showSuccess() {
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
 }
 
-// ─── Intersection Observer for scroll animations ───
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    // Close menu when a nav link is clicked
+    document.getElementById('navLinks').querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.getElementById('navLinks').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
+        });
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Copyright year
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
+    // Initialize form
+    updateFormLang('vi');
+
+    // ─── Form Submission ───
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = new FormData(this);
+
+        const subject = encodeURIComponent('AICC.vn Demo Request - ' + data.get('company'));
+        const body = encodeURIComponent(
+            'Name: ' + data.get('name') + '\n' +
+            'Company: ' + data.get('company') + '\n' +
+            'Email: ' + data.get('email') + '\n' +
+            'Phone: ' + (data.get('phone') || 'N/A') + '\n' +
+            'Interest: ' + data.get('interest') + '\n' +
+            'Message: ' + (data.get('message') || 'N/A')
+        );
+
+        window.open('mailto:sales@aicc.vn?subject=' + subject + '&body=' + body);
+        showSuccess();
+    });
+
+    // ─── Intersection Observer for scroll animations ───
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+});

@@ -73,6 +73,10 @@ nav {
     align-items: center;
     line-height: 1;
 }
+.logo-link {
+    display: block;
+    line-height: 0;
+}
 .logo-img {
     display: block;
     height: 42px;
@@ -787,8 +791,8 @@ footer {
     transform: translateY(0);
 }
 
-/* ─── Vietnamese text hidden by default ─── */
-.vi { display: none; }
+/* ─── Language visibility (symmetric) ─── */
+body:not(.lang-vi) .vi { display: none; }
 body.lang-vi .en { display: none; }
 body.lang-vi .vi { display: inline; }
 
