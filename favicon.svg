@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <rect width="32" height="32" rx="6" fill="#0a0a0f"/>
+    <defs>
+        <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6c5ce7"/>
+            <stop offset="100%" stop-color="#00cec9"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" stroke-linecap="round">
+        <path d="M 8 17 C 10 10, 22 10, 24 16" stroke="#c5dce8" stroke-width="0.8" opacity="0.65"/>
+        <path d="M 8 19 C 10 13, 22 13, 24 18" stroke="#a3beca" stroke-width="1.0" opacity="0.79"/>
+        <path d="M 8 21 C 11 16, 21 16, 24 20" stroke="#81a0ac" stroke-width="1.2" opacity="0.9"/>
+        <path d="M 8 23 C 11 18, 21 18, 24 22" stroke="#4e737f" stroke-width="1.4" opacity="1.0"/>
+    </g>
+    <text x="5" y="27" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="16" letter-spacing="-0.5" fill="url(#favGrad)">AI</text>
+</svg>

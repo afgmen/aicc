@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -80,23 +81,26 @@
             border-bottom: 1px solid var(--border);
         }
         .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            line-height: 1;
         }
-        .logo span {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .logo small {
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--text-secondary);
+        .logo-img {
             display: block;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            height: 42px;
+            width: auto;
+            filter: invert(1) hue-rotate(180deg);
+        }
+        /* ─── Hero Logo ─── */
+        .hero-logo-wrap {
+            margin-bottom: 36px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-logo-img {
+            height: 130px;
+            width: auto;
+            filter: invert(1) hue-rotate(180deg);
         }
         .nav-links {
             display: flex;
@@ -765,8 +769,7 @@
 <!-- Navigation -->
 <nav>
     <div class="logo">
-        <span>AICC</span>.vn
-        <small>AI Contact Center</small>
+        <img src="logo-transparent.png" class="logo-img" alt="AICC.vn">
     </div>
     <ul class="nav-links">
         <li><a href="#features"><span class="en">Solutions</span><span class="vi">Giải pháp</span></a></li>
@@ -785,6 +788,9 @@
 
 <!-- Hero Section -->
 <section class="hero">
+    <div class="hero-logo-wrap">
+        <img src="logo-transparent.png" class="hero-logo-img" alt="AICC - Artificial Intelligence Contact Center">
+    </div>
     <div class="hero-badge">
         <span class="dot"></span>
         <span class="en">Vietnam's #1 AI Contact Center Platform</span>
@@ -1110,8 +1116,7 @@
     <div class="footer-top">
         <div class="footer-brand">
             <div class="logo">
-                <span>AICC</span>.vn
-                <small>AI Contact Center</small>
+                <img src="logo-transparent.png" class="logo-img" alt="AICC.vn">
             </div>
             <p>
                 <span class="en">Vietnam's leading AI Contact Center platform, powered by proven Korean technology and local expertise.</span>
