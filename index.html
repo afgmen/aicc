@@ -813,15 +813,31 @@
         /* ─── Vietnamese text hidden by default ─── */
         .vi { display: none; }
         body.lang-vi .en { display: none; }
-        body.lang-vi .vi { display: revert; }
+        body.lang-vi .vi { display: inline; }
+
+        /* ─── Skip to content ─── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--accent);
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            z-index: 9999;
+            text-decoration: none;
+            border-radius: 0 0 8px 0;
+        }
+        .skip-link:focus { top: 0; }
     </style>
 </head>
 <body class="lang-vi">
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- Navigation -->
-<nav>
+<nav aria-label="Main navigation">
     <div class="logo">
-        <a href="#" style="display:block;line-height:0;">
+        <a href="/" style="display:block;line-height:0;">
             <img src="logo-transparent.png" class="logo-img" alt="AICC.vn">
         </a>
     </div>
@@ -836,14 +852,15 @@
         <li><a href="#contact" class="nav-cta"><span class="en">Get Started</span><span class="vi">Bắt đầu</span></a></li>
         <li>
             <div class="lang-toggle">
-                <button class="lang-btn" onclick="setLang('en')">EN</button>
-                <button class="lang-btn active" onclick="setLang('vi')">VI</button>
+                <button class="lang-btn" onclick="setLang('en')" aria-pressed="false">EN</button>
+                <button class="lang-btn active" onclick="setLang('vi')" aria-pressed="true">VI</button>
             </div>
         </li>
     </ul>
 </nav>
 
 <!-- Hero Section -->
+<main id="main-content">
 <section class="hero">
     <div class="hero-logo-wrap">
         <img src="logo-transparent.png" class="hero-logo-img" alt="AICC - Artificial Intelligence Contact Center">
@@ -1108,7 +1125,7 @@
     <div class="contact-wrapper fade-in">
         <!-- Contact Form -->
         <div>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xplaceholder" method="POST">
+            <form class="contact-form" id="contactForm">
                 <div class="form-row">
                     <input type="text" name="name" required>
                     <input type="text" name="company" required>
@@ -1128,8 +1145,8 @@
             </form>
             <div class="form-success" id="formSuccess">
                 <div class="check">&#10003;</div>
-                <h3><span class="en">Thank you!</span><span class="vi">Cảm ơn bạn!</span></h3>
-                <p><span class="en">We'll get back to you within 24 hours.</span><span class="vi">Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.</span></p>
+                <h3><span class="en">Almost there!</span><span class="vi">Gần xong rồi!</span></h3>
+                <p><span class="en">Your email client has opened with your details pre-filled. Please send the email to complete your demo request.</span><span class="vi">Ứng dụng email của bạn đã mở với thông tin được điền sẵn. Vui lòng gửi email để hoàn tất yêu cầu demo.</span></p>
             </div>
         </div>
 
@@ -1168,6 +1185,7 @@
     </div>
 </section>
 
+</main>
 <!-- Footer -->
 <footer>
     <div class="footer-top">
@@ -1204,11 +1222,6 @@
     <div class="footer-bottom">
         <div>
             <span>&copy; 2026 AICC.vn — All rights reserved.</span>
-            <span style="margin-left:16px; opacity:0.5;">
-                <a href="#" style="color:var(--text-secondary);text-decoration:none;font-size:0.8rem;">Privacy Policy</a>
-                &nbsp;|&nbsp;
-                <a href="#" style="color:var(--text-secondary);text-decoration:none;font-size:0.8rem;">Terms of Service</a>
-            </span>
         </div>
         <div class="footer-flags">
             <span title="Vietnam">&#127483;&#127475;</span>
@@ -1265,10 +1278,16 @@
         const form = document.getElementById('contactForm');
         if (!form) return;
         form.querySelector('[name="name"]').placeholder = t.name;
+        form.querySelector('[name="name"]').setAttribute('aria-label', t.name);
         form.querySelector('[name="company"]').placeholder = t.company;
+        form.querySelector('[name="company"]').setAttribute('aria-label', t.company);
         form.querySelector('[name="email"]').placeholder = t.email;
+        form.querySelector('[name="email"]').setAttribute('aria-label', t.email);
         form.querySelector('[name="phone"]').placeholder = t.phone;
+        form.querySelector('[name="phone"]').setAttribute('aria-label', t.phone);
         form.querySelector('[name="message"]').placeholder = t.message;
+        form.querySelector('[name="message"]').setAttribute('aria-label', t.message);
+        form.querySelector('[name="interest"]').setAttribute('aria-label', t.interestDefault);
 
         const select = form.querySelector('[name="interest"]');
         const currentVal = select.value;
@@ -1288,7 +1307,9 @@
         document.documentElement.lang = lang;
         document.body.classList.toggle('lang-vi', lang === 'vi');
         document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
+            const isActive = btn.textContent.trim() === lang.toUpperCase();
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
         updateFormLang(lang);
     }
@@ -1315,10 +1336,8 @@
     // ─── Form Submission ───
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const form = this;
-        const data = new FormData(form);
+        const data = new FormData(this);
 
-        // Send via mailto fallback (works without Formspree setup)
         const subject = encodeURIComponent('AICC.vn Demo Request - ' + data.get('company'));
         const body = encodeURIComponent(
             'Name: ' + data.get('name') + '\n' +
@@ -1329,23 +1348,8 @@
             'Message: ' + (data.get('message') || 'N/A')
         );
 
-        // Try Formspree first, fallback to mailto
-        fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        }).then(r => {
-            if (r.ok) {
-                showSuccess();
-            } else {
-                // Fallback to mailto
-                window.location.href = 'mailto:sales@aicc.vn?subject=' + subject + '&body=' + body;
-                showSuccess();
-            }
-        }).catch(() => {
-            window.location.href = 'mailto:sales@aicc.vn?subject=' + subject + '&body=' + body;
-            showSuccess();
-        });
+        window.location.href = 'mailto:sales@aicc.vn?subject=' + subject + '&body=' + body;
+        showSuccess();
     });
 
     function showSuccess() {
