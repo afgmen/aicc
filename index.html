@@ -9,6 +9,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://aicc.vn/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicc.vn/">
+    <meta property="og:title" content="AICC.vn — AI Contact Center Vietnam">
+    <meta property="og:description" content="Nền tảng Trung tâm Liên lạc AI hàng đầu Việt Nam. Vietnam's leading AI Contact Center powered by Korean technology.">
+    <meta property="og:image" content="https://aicc.vn/logo-transparent.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AICC.vn — AI Contact Center Vietnam">
+    <meta name="twitter:description" content="Nền tảng Trung tâm Liên lạc AI hàng đầu Việt Nam. Vietnam's leading AI Contact Center powered by Korean technology.">
+    <meta name="twitter:image" content="https://aicc.vn/logo-transparent.png">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -734,9 +746,49 @@
             .steps { grid-template-columns: repeat(2, 1fr); }
             .footer-top { grid-template-columns: 1fr 1fr; }
         }
+        /* ─── Hamburger ─── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
         @media (max-width: 768px) {
             nav { padding: 12px 20px; }
-            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(10, 10, 15, 0.97);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                z-index: 1000;
+                font-size: 1.2rem;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { list-style: none; }
+            .nav-links a { font-size: 1.2rem; }
+            .lang-toggle { margin-top: 8px; }
             .features-grid { grid-template-columns: 1fr; }
             .industries-grid { grid-template-columns: 1fr 1fr; }
             .steps { grid-template-columns: 1fr; }
@@ -773,7 +825,10 @@
             <img src="logo-transparent.png" class="logo-img" alt="AICC.vn">
         </a>
     </div>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
         <li><a href="#features"><span class="en">Solutions</span><span class="vi">Giải pháp</span></a></li>
         <li><a href="#heritage"><span class="en">Our Heritage</span><span class="vi">Di sản</span></a></li>
         <li><a href="#industries"><span class="en">Industries</span><span class="vi">Ngành nghề</span></a></li>
@@ -1230,12 +1285,29 @@
     // Language switcher
     function setLang(lang) {
         currentLang = lang;
+        document.documentElement.lang = lang;
         document.body.classList.toggle('lang-vi', lang === 'vi');
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.textContent.trim() === lang.toUpperCase());
         });
         updateFormLang(lang);
     }
+
+    // Mobile menu toggle
+    function toggleMenu() {
+        const nav = document.getElementById('navLinks');
+        const btn = document.getElementById('hamburger');
+        nav.classList.toggle('open');
+        btn.classList.toggle('open');
+    }
+
+    // Close menu when a nav link is clicked
+    document.getElementById('navLinks').querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.getElementById('navLinks').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
+        });
+    });
 
     // Initialize form
     updateFormLang('vi');
