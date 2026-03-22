@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -764,7 +764,7 @@
         body.lang-vi .vi { display: revert; }
     </style>
 </head>
-<body>
+<body class="lang-vi">
 
 <!-- Navigation -->
 <nav>
@@ -779,8 +779,8 @@
         <li><a href="#contact" class="nav-cta"><span class="en">Get Started</span><span class="vi">Bắt đầu</span></a></li>
         <li>
             <div class="lang-toggle">
-                <button class="lang-btn active" onclick="setLang('en')">EN</button>
-                <button class="lang-btn" onclick="setLang('vi')">VI</button>
+                <button class="lang-btn" onclick="setLang('en')">EN</button>
+                <button class="lang-btn active" onclick="setLang('vi')">VI</button>
             </div>
         </li>
     </ul>
@@ -1201,7 +1201,7 @@
         }
     };
 
-    let currentLang = 'en';
+    let currentLang = 'vi';
 
     function updateFormLang(lang) {
         const t = i18n[lang];
@@ -1236,7 +1236,7 @@
     }
 
     // Initialize form
-    updateFormLang('en');
+    updateFormLang('vi');
 
     // ─── Form Submission ───
     document.getElementById('contactForm').addEventListener('submit', function(e) {
