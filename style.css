@@ -81,7 +81,6 @@ nav {
     display: block;
     height: 42px;
     width: auto;
-    filter: invert(1) hue-rotate(180deg);
 }
 /* ─── Hero Logo ─── */
 .hero-logo-wrap {
@@ -92,7 +91,6 @@ nav {
 .hero-logo-img {
     height: 130px;
     width: auto;
-    filter: invert(1) hue-rotate(180deg);
 }
 .nav-links {
     display: flex;
