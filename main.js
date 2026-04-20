@@ -68,6 +68,21 @@ function updateFormLang(lang) {
     });
 }
 
+// ─── Theme Toggle ───
+function toggleTheme() {
+    const isLight = document.body.classList.toggle('light');
+    document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('aicc-theme', isLight ? 'light' : 'dark');
+}
+
+(function() {
+    if (localStorage.getItem('aicc-theme') === 'light') {
+        document.body.classList.add('light');
+        const btn = document.getElementById('themeBtn');
+        if (btn) btn.textContent = '☀️';
+    }
+})();
+
 // Language switcher
 function setLang(lang) {
     currentLang = lang;
