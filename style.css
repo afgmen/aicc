@@ -31,9 +31,6 @@ body.light nav { background: rgba(255,255,255,0.88); }
 body.light .lang-toggle { background: rgba(0,0,0,0.04); }
 body.light .btn-secondary { border-color: rgba(0,0,0,0.15); }
 body.light .btn-secondary:hover { border-color: rgba(0,0,0,0.25); background: rgba(0,0,0,0.04); }
-.logo-light { display: none; }
-body.light .logo-dark { display: none; }
-body.light .logo-light { display: inline; }
 
 /* ─── Theme Toggle Button ─── */
 .theme-toggle {

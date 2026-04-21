@@ -69,10 +69,19 @@ function updateFormLang(lang) {
 }
 
 // ─── Theme Toggle ───
+function setLogoSrc(isLight) {
+    const src = isLight ? 'logo-transparent.png' : 'logo-white.png';
+    ['navLogo', 'heroLogo'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.src = src;
+    });
+}
+
 function toggleTheme() {
     const isLight = document.body.classList.toggle('light');
     document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
     localStorage.setItem('aicc-theme', isLight ? 'light' : 'dark');
+    setLogoSrc(isLight);
 }
 
 (function() {
@@ -80,6 +89,7 @@ function toggleTheme() {
         document.body.classList.add('light');
         const btn = document.getElementById('themeBtn');
         if (btn) btn.textContent = '☀️';
+        setLogoSrc(true);
     }
 })();
 
