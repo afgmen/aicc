@@ -71,7 +71,7 @@ function updateFormLang(lang) {
 // ─── Theme Toggle ───
 function setLogoSrc(isLight) {
     const src = isLight ? 'logo-transparent.png' : 'logo-white.png';
-    ['navLogo', 'heroLogo'].forEach(id => {
+    ['navLogo', 'heroLogo', 'footerLogo'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.src = src;
     });
