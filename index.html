@@ -24,7 +24,8 @@
     <meta name="twitter:image" content="https://aicc.vn/logo-transparent.png">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="lang-vi">
+<body>
+<script>(function(){var l=localStorage.getItem('aicc-lang')||'vi';if(l==='vi')document.body.classList.add('lang-vi');document.documentElement.lang=l;if(localStorage.getItem('aicc-theme')!=='dark')document.body.classList.add('light');})();</script>
 <a href="#main-content" class="skip-link"><span class="en">Skip to main content</span><span class="vi">Chuyển đến nội dung chính</span></a>
 
 <!-- Navigation -->
@@ -38,9 +39,9 @@
         <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-        <li><a href="#features"><span class="en">Solutions</span><span class="vi">Giải pháp</span></a></li>
+        <li><a href="/platform/"><span class="en">Components</span><span class="vi">Thành phần</span></a></li>
+        <li><a href="/solutions/"><span class="en">Solutions</span><span class="vi">Giải pháp</span></a></li>
         <li><a href="#heritage"><span class="en">Our Heritage</span><span class="vi">Di sản</span></a></li>
-        <li><a href="#industries"><span class="en">Industries</span><span class="vi">Ngành nghề</span></a></li>
         <li><a href="#how-it-works"><span class="en">How It Works</span><span class="vi">Cách hoạt động</span></a></li>
         <li><a href="#contact" class="nav-cta"><span class="en">Get Started</span><span class="vi">Bắt đầu</span></a></li>
         <li>
@@ -79,7 +80,7 @@
             <span class="en">Request a Demo →</span>
             <span class="vi">Yêu cầu Demo →</span>
         </a>
-        <a href="#features" class="btn-secondary">
+        <a href="/solutions/" class="btn-secondary">
             <span class="en">Explore Solutions</span>
             <span class="vi">Khám phá Giải pháp</span>
         </a>
@@ -185,85 +186,188 @@
 <section id="features">
     <div class="features-header fade-in">
         <div class="section-label">
-            <span class="en">Solutions</span>
-            <span class="vi">Giải pháp</span>
+            <span class="en">Core AI Platform</span>
+            <span class="vi">Nền tảng AI Lõi</span>
         </div>
         <h2 class="section-title">
-            <span class="en">Everything You Need for<br>Intelligent Customer Service</span>
-            <span class="vi">Tất cả những gì bạn cần cho<br>Dịch vụ Khách hàng Thông minh</span>
+            <span class="en">Core AI Engine:<br>Nine Tech Components</span>
+            <span class="vi">AI Engine Lõi:<br>Chín Thành phần Công nghệ</span>
         </h2>
         <p class="section-desc">
-            <span class="en">From AI voice recognition to real-time multilingual translation, our platform handles the full customer journey.</span>
-            <span class="vi">Từ nhận dạng giọng nói AI đến dịch thuật đa ngôn ngữ thời gian thực, nền tảng của chúng tôi xử lý toàn bộ hành trình khách hàng.</span>
+            <span class="en">Nine modular components — Voice Engine, Financial LLM, Compliance Guardrails, and more — combine to power every AICC.vn product.</span>
+            <span class="vi">Chín thành phần mô-đun — Voice Engine, Financial LLM, Compliance Guardrails và hơn thế — kết hợp để vận hành mọi sản phẩm AICC.vn.</span>
         </p>
+        <a href="/platform/" class="section-cta-link">
+            <span class="en">See all nine components →</span>
+            <span class="vi">Xem tất cả chín thành phần →</span>
+        </a>
     </div>
     <div class="features-grid">
-        <div class="feature-card fade-in">
+        <a href="/platform/#voice-engine" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
             <div class="feature-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(108,92,231,0.05));">🎙️</div>
-            <h3><span class="en">AI Speech Recognition</span><span class="vi">Nhận dạng Giọng nói AI</span></h3>
-            <p><span class="en">End-to-end deep learning models with patented technology achieving 99.2% accuracy in Vietnamese, Korean, English, Chinese, and Japanese.</span><span class="vi">Mô hình học sâu end-to-end với công nghệ được cấp bằng sáng chế đạt độ chính xác 99,2% trong tiếng Việt, Hàn, Anh, Trung và Nhật.</span></p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.15), rgba(253,121,168,0.05));">🌐</div>
-            <h3><span class="en">Real-Time Translation</span><span class="vi">Dịch thuật Thời gian thực</span></h3>
-            <p><span class="en">Instant multilingual translation powered by neural machine translation, enabling seamless cross-border customer communication.</span><span class="vi">Dịch thuật đa ngôn ngữ tức thì được hỗ trợ bởi dịch máy thần kinh, cho phép giao tiếp khách hàng xuyên biên giới liền mạch.</span></p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.15), rgba(0,206,201,0.05));">🤖</div>
-            <h3><span class="en">AI Callbot & Chatbot</span><span class="vi">AI Callbot & Chatbot</span></h3>
-            <p><span class="en">Intelligent virtual agents that handle routine inquiries 24/7, reducing wait times by 80% while maintaining human-like conversation quality.</span><span class="vi">Tổng đài viên ảo thông minh xử lý các yêu cầu thường xuyên 24/7, giảm thời gian chờ 80% trong khi duy trì chất lượng hội thoại như người thật.</span></p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.15), rgba(253,121,168,0.05));">📊</div>
-            <h3><span class="en">Call Analytics & QA</span><span class="vi">Phân tích Cuộc gọi & QA</span></h3>
-            <p><span class="en">Automatic quality monitoring, sentiment analysis, and compliance checking across 100% of calls — not just random samples.</span><span class="vi">Giám sát chất lượng tự động, phân tích cảm xúc và kiểm tra tuân thủ trên 100% cuộc gọi — không chỉ mẫu ngẫu nhiên.</span></p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(108,92,231,0.05));">🔗</div>
-            <h3><span class="en">Omnichannel Integration</span><span class="vi">Tích hợp Đa kênh</span></h3>
-            <p><span class="en">Seamlessly connect voice, chat, email, Zalo, Facebook Messenger, and more in a unified AI-powered workspace.</span><span class="vi">Kết nối liền mạch giọng nói, chat, email, Zalo, Facebook Messenger và nhiều hơn nữa trong một không gian làm việc AI thống nhất.</span></p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.15), rgba(0,206,201,0.05));">☁️</div>
-            <h3><span class="en">Cloud-Native SaaS</span><span class="vi">SaaS Gốc Đám mây</span></h3>
-            <p><span class="en">Deploy in days, not months. Our cloud-first architecture means no hardware, instant scaling, and enterprise-grade security.</span><span class="vi">Triển khai trong vài ngày, không phải vài tháng. Kiến trúc ưu tiên đám mây nghĩa là không cần phần cứng, mở rộng tức thì và bảo mật cấp doanh nghiệp.</span></p>
-        </div>
+            <h3><span class="en">Voice Engine</span><span class="vi">Voice Engine</span></h3>
+            <p><span class="en">Vietnamese-optimized STT/TTS with regional dialect support and &lt;200ms call latency.</span><span class="vi">Nhận dạng và tổng hợp giọng nói tiếng Việt tối ưu, hỗ trợ phương ngữ và độ trễ &lt;200ms.</span></p>
+        </a>
+        <a href="/platform/#orchestrator" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.15), rgba(253,121,168,0.05));">🔀</div>
+            <h3><span class="en">Orchestrator</span><span class="vi">Orchestrator</span></h3>
+            <p><span class="en">Multi-turn conversation manager controlling turn-taking, topic routing, and escalation across every interaction.</span><span class="vi">Quản lý hội thoại đa lượt: kiểm soát luồng câu hỏi, chuyển chủ đề và leo thang xử lý.</span></p>
+        </a>
+        <a href="/platform/#financial-llm" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.15), rgba(0,206,201,0.05));">🧠</div>
+            <h3><span class="en">Financial LLM</span><span class="vi">Financial LLM</span></h3>
+            <p><span class="en">Fine-tuned on Vietnamese banking, insurance, and securities terminology — with cultural honorifics built in.</span><span class="vi">Được tinh chỉnh với thuật ngữ ngân hàng, bảo hiểm và chứng khoán tiếng Việt, bao gồm kính ngữ.</span></p>
+        </a>
+        <a href="/platform/#knowledge-rag" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.15), rgba(253,121,168,0.05));">📚</div>
+            <h3><span class="en">Knowledge / RAG</span><span class="vi">Knowledge / RAG</span></h3>
+            <p><span class="en">Real-time retrieval from product catalogs, regulatory documents, and client profiles. Grounded answers with citations.</span><span class="vi">Truy xuất thời gian thực từ danh mục sản phẩm, văn bản pháp quy và hồ sơ khách hàng.</span></p>
+        </a>
+        <a href="/platform/#classifiers" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(108,92,231,0.05));">🏷️</div>
+            <h3><span class="en">Classifiers</span><span class="vi">Classifiers</span></h3>
+            <p><span class="en">Intent detection, sentiment analysis, violation flagging, and lead scoring — running on every utterance in real time.</span><span class="vi">Phát hiện ý định, phân tích cảm xúc và gắn nhãn vi phạm theo thời gian thực trên mỗi câu nói.</span></p>
+        </a>
+        <a href="/platform/#action-layer" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.15), rgba(0,206,201,0.05));">⚡</div>
+            <h3><span class="en">Action Layer</span><span class="vi">Action Layer</span></h3>
+            <p><span class="en">API gateway to core banking, policy admin, claims, and CRM. Generates payment links and triggers workflows instantly.</span><span class="vi">Cổng API kết nối ngân hàng lõi, quản lý hợp đồng, bồi thường và CRM. Tạo link thanh toán và kích hoạt quy trình.</span></p>
+        </a>
+        <a href="/platform/#compliance-guardrails" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.15), rgba(253,121,168,0.05));">🛡️</div>
+            <h3><span class="en">Compliance Guardrails</span><span class="vi">Compliance Guardrails</span></h3>
+            <p><span class="en">Circular 67 enforcement, PII protection, disclosure requirement checking, and immutable audit logs.</span><span class="vi">Áp dụng Thông tư 67, bảo vệ PII, kiểm tra công bố thông tin và nhật ký kiểm toán bất biến.</span></p>
+        </a>
+        <a href="/platform/#channel-adapters" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(108,92,231,0.05));">📡</div>
+            <h3><span class="en">Channel Adapters</span><span class="vi">Channel Adapters</span></h3>
+            <p><span class="en">Unified connectors for phone, Zalo, web chat, email, and in-app. One conversation thread across all channels.</span><span class="vi">Kết nối thống nhất cho điện thoại, Zalo, web chat, email và ứng dụng. Một luồng xuyên suốt mọi kênh.</span></p>
+        </a>
+        <a href="/platform/#qa-analytics" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+            <div class="feature-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.15), rgba(0,206,201,0.05));">📊</div>
+            <h3><span class="en">QA & Analytics</span><span class="vi">QA & Analytics</span></h3>
+            <p><span class="en">Automated call scoring, coaching dashboards, trend analysis, and performance benchmarking across 100% of calls.</span><span class="vi">Chấm điểm cuộc gọi tự động, bảng điều khiển coaching, phân tích xu hướng trên 100% cuộc gọi.</span></p>
+        </a>
     </div>
 </section>
 
-<!-- Industries Section -->
+<!-- Financial Products Section -->
 <section id="industries">
     <div class="features-header fade-in">
         <div class="section-label">
-            <span class="en">Industries</span>
-            <span class="vi">Ngành nghề</span>
+            <span class="en">Financial Services</span>
+            <span class="vi">Dịch vụ Tài chính</span>
         </div>
         <h2 class="section-title">
-            <span class="en">Built for Vietnam's Key Industries</span>
-            <span class="vi">Xây dựng cho các Ngành trọng điểm Việt Nam</span>
+            <span class="en">Nine AI products.<br>One modular platform.</span>
+            <span class="vi">Chín sản phẩm AI.<br>Một nền tảng mô-đun.</span>
         </h2>
+        <p class="section-desc">
+            <span class="en">Every product is assembled from the same nine platform components — mix and match for your exact use case.</span>
+            <span class="vi">Mỗi sản phẩm được lắp ráp từ chín thành phần nền tảng chung — kết hợp linh hoạt cho đúng nhu cầu của bạn.</span>
+        </p>
     </div>
-    <div class="industries-grid">
-        <div class="industry-card fade-in">
-            <div class="industry-icon">🏦</div>
-            <h4><span class="en">Banking & Finance</span><span class="vi">Ngân hàng & Tài chính</span></h4>
-            <p><span class="en">Fraud detection, KYC automation, loan processing</span><span class="vi">Phát hiện gian lận, tự động hóa KYC, xử lý cho vay</span></p>
-        </div>
-        <div class="industry-card fade-in">
-            <div class="industry-icon">📱</div>
-            <h4><span class="en">Telecom</span><span class="vi">Viễn thông</span></h4>
-            <p><span class="en">Bill inquiries, plan changes, technical support</span><span class="vi">Tra cứu hóa đơn, thay đổi gói cước, hỗ trợ kỹ thuật</span></p>
-        </div>
-        <div class="industry-card fade-in">
-            <div class="industry-icon">🛒</div>
-            <h4><span class="en">E-Commerce</span><span class="vi">Thương mại điện tử</span></h4>
-            <p><span class="en">Order tracking, returns, personalized recommendations</span><span class="vi">Theo dõi đơn hàng, trả hàng, gợi ý cá nhân hóa</span></p>
-        </div>
-        <div class="industry-card fade-in">
-            <div class="industry-icon">🏥</div>
-            <h4><span class="en">Healthcare</span><span class="vi">Y tế</span></h4>
-            <p><span class="en">Appointment booking, symptom triage, follow-up calls</span><span class="vi">Đặt lịch hẹn, phân loại triệu chứng, cuộc gọi theo dõi</span></p>
-        </div>
+    <div class="products-grid">
+        <a href="/solutions/#qa-compliance-monitor" class="product-card fade-in">
+            <div class="product-card-icon">🎧</div>
+            <h4><span class="en">AI QA & Compliance Monitor</span><span class="vi">Giám sát QA & Tuân thủ AI</span></h4>
+            <p><span class="en">Auto-score 100% of calls. Enforce Circular 67 disclosure rules without manual review.</span><span class="vi">Tự động chấm điểm 100% cuộc gọi. Kiểm tra Thông tư 67 không cần thủ công.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">QAQC & Compliance</span><span class="vi">QA & Tuân thủ</span></span>
+                <span class="cap-tag secondary"><span class="en">Conversation Intel</span><span class="vi">Phân tích Hội thoại</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#policy-servicing" class="product-card fade-in">
+            <div class="product-card-icon">📋</div>
+            <h4><span class="en">AI Policy Servicing Assistant</span><span class="vi">Trợ lý Phục vụ Hợp đồng AI</span></h4>
+            <p><span class="en">Self-service policy renewals, changes, and inquiries via voice or Zalo — 24/7.</span><span class="vi">Tự phục vụ gia hạn, thay đổi và tra cứu hợp đồng qua giọng nói hoặc Zalo.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></span>
+                <span class="cap-tag primary"><span class="en">Outbound AI</span><span class="vi">AI Chủ động</span></span>
+                <span class="cap-tag secondary"><span class="en">Orchestration</span><span class="vi">Điều phối</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#claims-assistant" class="product-card fade-in">
+            <div class="product-card-icon">🏥</div>
+            <h4><span class="en">AI Claims Assistant</span><span class="vi">Trợ lý Bồi thường AI</span></h4>
+            <p><span class="en">Guide customers through claims filing 24/7 — without a human agent in the loop.</span><span class="vi">Hướng dẫn khách hàng làm thủ tục bồi thường 24/7 — không cần tổng đài viên.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></span>
+                <span class="cap-tag secondary"><span class="en">Orchestration</span><span class="vi">Điều phối</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#payment-support" class="product-card fade-in">
+            <div class="product-card-icon">💳</div>
+            <h4><span class="en">AI Payment Support</span><span class="vi">Hỗ trợ Thanh toán AI</span></h4>
+            <p><span class="en">Proactive outbound reminders with instant payment links. Reduce delinquency rates.</span><span class="vi">Nhắc nhở chủ động với link thanh toán tức thì. Giảm tỷ lệ nợ quá hạn.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Outbound AI</span><span class="vi">AI Chủ động</span></span>
+                <span class="cap-tag secondary"><span class="en">Orchestration</span><span class="vi">Điều phối</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#agent-copilot" class="product-card fade-in">
+            <div class="product-card-icon">🤝</div>
+            <h4><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot cho Tổng đài viên</span></h4>
+            <p><span class="en">Real-time suggestions and compliance cues for live agents during every call.</span><span class="vi">Gợi ý thời gian thực và cảnh báo tuân thủ cho tổng đài viên đang trực tuyến.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài</span></span>
+                <span class="cap-tag secondary"><span class="en">Conversation Intel</span><span class="vi">Phân tích Hội thoại</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#onboarding-ekyc" class="product-card fade-in">
+            <div class="product-card-icon">🪪</div>
+            <h4><span class="en">AI Onboarding & eKYC</span><span class="vi">Onboarding & eKYC bằng AI</span></h4>
+            <p><span class="en">Automated CCCD verification, face matching, and digital consent. Minutes, not days.</span><span class="vi">Xác minh CCCD tự động, nhận diện khuôn mặt và đồng ý số. Vài phút, không phải vài ngày.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></span>
+                <span class="cap-tag secondary"><span class="en">Orchestration</span><span class="vi">Điều phối</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#fraud-detection" class="product-card fade-in">
+            <div class="product-card-icon">🛡️</div>
+            <h4><span class="en">AI Fraud Detection</span><span class="vi">Phát hiện Gian lận AI</span></h4>
+            <p><span class="en">Flag suspicious patterns across calls and transactions before losses occur.</span><span class="vi">Phát hiện hành vi đáng ngờ trong cuộc gọi và giao dịch trước khi xảy ra tổn thất.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Outbound AI</span><span class="vi">AI Chủ động</span></span>
+                <span class="cap-tag secondary"><span class="en">QAQC & Compliance</span><span class="vi">QA & Tuân thủ</span></span>
+                <span class="cap-tag secondary"><span class="en">Conversation Intel</span><span class="vi">Phân tích Hội thoại</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#market-insight" class="product-card fade-in">
+            <div class="product-card-icon">📈</div>
+            <h4><span class="en">AI Market Insight Assistant</span><span class="vi">Trợ lý Thông tin Thị trường AI</span></h4>
+            <p><span class="en">Personalized Vietnamese market commentary and product recommendations for advisors.</span><span class="vi">Bình luận thị trường và gợi ý sản phẩm cá nhân hóa cho chuyên viên tư vấn.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></span>
+                <span class="cap-tag secondary"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài</span></span>
+                <span class="cap-tag secondary"><span class="en">Conversation Intel</span><span class="vi">Phân tích Hội thoại</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+        <a href="/solutions/#sales-prep" class="product-card fade-in">
+            <div class="product-card-icon">🎯</div>
+            <h4><span class="en">AI Sales Preparation Assistant</span><span class="vi">Trợ lý Chuẩn bị Bán hàng AI</span></h4>
+            <p><span class="en">Pre-call briefings, objection handlers, and regulated sales compliance checks.</span><span class="vi">Tóm tắt trước cuộc gọi, xử lý từ chối và kiểm tra tuân thủ bán hàng.</span></p>
+            <div class="product-caps">
+                <span class="cap-tag primary"><span class="en">Outbound AI</span><span class="vi">AI Chủ động</span></span>
+                <span class="cap-tag secondary"><span class="en">QAQC & Compliance</span><span class="vi">QA & Tuân thủ</span></span>
+                <span class="cap-tag secondary"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài</span></span>
+            </div>
+            <span class="product-card-link"><span class="en">Learn more →</span><span class="vi">Xem thêm →</span></span>
+        </a>
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+        <a href="/solutions/" class="section-cta-link">
+            <span class="en">View all financial services products →</span>
+            <span class="vi">Xem tất cả sản phẩm dịch vụ tài chính →</span>
+        </a>
     </div>
 </section>
 
@@ -409,18 +513,18 @@
             </p>
         </div>
         <div class="footer-col">
-            <h4><span class="en">Solutions</span><span class="vi">Giải pháp</span></h4>
-            <a href="#features"><span class="en">AI Speech Recognition</span><span class="vi">Nhận dạng Giọng nói AI</span></a>
-            <a href="#features"><span class="en">Real-Time Translation</span><span class="vi">Dịch thuật Thời gian thực</span></a>
-            <a href="#features"><span class="en">AI Callbot</span><span class="vi">AI Callbot</span></a>
-            <a href="#features"><span class="en">Call Analytics</span><span class="vi">Phân tích Cuộc gọi</span></a>
+            <h4><span class="en">Components</span><span class="vi">Thành phần</span></h4>
+            <a href="/platform/#voice-engine"><span class="en">Voice Engine</span><span class="vi">Voice Engine</span></a>
+            <a href="/platform/#financial-llm"><span class="en">Financial LLM</span><span class="vi">Financial LLM</span></a>
+            <a href="/platform/#compliance-guardrails"><span class="en">Compliance Guardrails</span><span class="vi">Compliance Guardrails</span></a>
+            <a href="/platform/"><span class="en">All nine components →</span><span class="vi">Tất cả 9 thành phần →</span></a>
         </div>
         <div class="footer-col">
-            <h4><span class="en">Industries</span><span class="vi">Ngành nghề</span></h4>
-            <a href="#industries"><span class="en">Banking</span><span class="vi">Ngân hàng</span></a>
-            <a href="#industries"><span class="en">Telecom</span><span class="vi">Viễn thông</span></a>
-            <a href="#industries"><span class="en">E-Commerce</span><span class="vi">Thương mại điện tử</span></a>
-            <a href="#industries"><span class="en">Healthcare</span><span class="vi">Y tế</span></a>
+            <h4><span class="en">Solutions</span><span class="vi">Giải pháp</span></h4>
+            <a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA Monitor</span><span class="vi">AI Giám sát QA</span></a>
+            <a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot</span></a>
+            <a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding & eKYC</span><span class="vi">AI Onboarding & eKYC</span></a>
+            <a href="/solutions/"><span class="en">All nine products →</span><span class="vi">Tất cả 9 sản phẩm →</span></a>
         </div>
         <div class="footer-col">
             <h4><span class="en">Company</span><span class="vi">Công ty</span></h4>

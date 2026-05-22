@@ -70,7 +70,7 @@ function updateFormLang(lang) {
 
 // ─── Theme Toggle ───
 function setLogoSrc(isLight) {
-    const src = isLight ? 'logo-transparent.png' : 'logo-white.png';
+    const src = isLight ? '/logo-transparent.png' : '/logo-white.png';
     ['navLogo', 'heroLogo', 'footerLogo'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.src = src;
@@ -79,17 +79,20 @@ function setLogoSrc(isLight) {
 
 function toggleTheme() {
     const isLight = document.body.classList.toggle('light');
-    document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
+    document.getElementById('themeBtn').textContent = isLight ? '🌙' : '☀️';
     localStorage.setItem('aicc-theme', isLight ? 'light' : 'dark');
     setLogoSrc(isLight);
 }
 
 (function() {
-    if (localStorage.getItem('aicc-theme') === 'light') {
+    const isDark = localStorage.getItem('aicc-theme') === 'dark';
+    if (!isDark) {
         document.body.classList.add('light');
+        setLogoSrc(true);
+    } else {
         const btn = document.getElementById('themeBtn');
         if (btn) btn.textContent = '☀️';
-        setLogoSrc(true);
+        setLogoSrc(false);
     }
 })();
 
@@ -103,8 +106,20 @@ function setLang(lang) {
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
-    updateFormLang(lang);
+    if (document.getElementById('contactForm')) updateFormLang(lang);
+    localStorage.setItem('aicc-lang', lang);
 }
+
+(function() {
+    const savedLang = localStorage.getItem('aicc-lang');
+    if (savedLang === 'en') {
+        document.body.classList.remove('lang-vi');
+        document.documentElement.lang = 'en';
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.trim() === 'EN');
+        });
+    }
+})();
 
 // Mobile menu toggle
 function toggleMenu() {
@@ -131,11 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Copyright year
     document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-    // Initialize form
-    updateFormLang('vi');
+    // Initialize form (only on pages that have one)
+    if (document.getElementById('contactForm')) {
+        updateFormLang('vi');
+    }
 
     // ─── Form Submission ───
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const data = new FormData(this);
 
