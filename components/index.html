@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICC.vn Platform — Core AI Engine | Nền tảng AI Lõi</title>
+    <meta name="description" content="Nine modular AI components powering every AICC.vn financial services product. Voice Engine, Financial LLM, Compliance Guardrails and more. Chín thành phần AI mô-đun.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="canonical" href="https://aicc.vn/components/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aicc.vn/components/">
+    <meta property="og:title" content="AICC.vn Platform — Core AI Engine">
+    <meta property="og:description" content="Nine modular AI components powering every AICC.vn financial services product.">
+    <meta property="og:image" content="https://aicc.vn/logo-transparent.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AICC.vn Platform — Core AI Engine">
+    <meta name="twitter:description" content="Nine modular AI components powering every AICC.vn financial services product.">
+    <meta name="twitter:image" content="https://aicc.vn/logo-transparent.png">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* ─── Platform-specific styles ─── */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        @media (max-width: 1024px) {
+            .components-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .components-grid { grid-template-columns: 1fr; }
+        }
+        .component-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .component-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(108,92,231,0.15);
+            border-color: rgba(108,92,231,0.3);
+        }
+        .component-card:target {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px var(--accent-glow);
+        }
+        .component-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+        .component-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        .component-card > p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .powers-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        .powers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .power-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+        .power-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .power-dot.primary { background: #1D9E75; }
+        .power-dot.secondary { background: #85B7EB; }
+        .power-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .power-item a:hover { color: var(--accent-light); }
+
+        /* ─── Capabilities grid ─── */
+        .caps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        @media (max-width: 768px) {
+            .caps-grid { grid-template-columns: 1fr; }
+        }
+        .cap-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .cap-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(108,92,231,0.12);
+            border-color: rgba(108,92,231,0.25);
+        }
+        .cap-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .cap-icon {
+            font-size: 1.5rem;
+        }
+        .cap-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .cap-card > p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 14px;
+        }
+        .cap-products-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .cap-products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        .cap-product-tag {
+            font-size: 0.73rem;
+            padding: 4px 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s, border-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .cap-product-tag:hover {
+            color: var(--accent-light);
+            border-color: rgba(162,155,254,0.3);
+        }
+        .cap-product-tag.primary {
+            background: rgba(29,158,117,0.07);
+            border-color: rgba(29,158,117,0.2);
+            color: #1D9E75;
+        }
+        .cap-product-tag.primary:hover {
+            background: rgba(29,158,117,0.12);
+            border-color: rgba(29,158,117,0.35);
+        }
+
+        /* ─── Deployment section ─── */
+        .deploy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        @media (max-width: 640px) {
+            .deploy-grid { grid-template-columns: 1fr; }
+        }
+        .deploy-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+            transition: border-color 0.3s;
+        }
+        .deploy-card.featured {
+            border-color: rgba(108,92,231,0.3);
+            background: linear-gradient(135deg, rgba(108,92,231,0.06) 0%, var(--bg-secondary) 100%);
+        }
+        .deploy-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+            background: rgba(108,92,231,0.12);
+            color: var(--accent-light);
+            border: 1px solid rgba(108,92,231,0.2);
+        }
+        .deploy-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .deploy-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .deploy-card ul {
+            list-style: none;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .deploy-card ul li {
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .deploy-card ul li::before {
+            content: '→';
+            color: var(--accent-light);
+            flex-shrink: 0;
+        }
+
+        /* ─── Breadcrumb ─── */
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .breadcrumb a:hover { color: var(--accent-light); }
+        .breadcrumb-sep { color: var(--text-secondary); opacity: 0.5; }
+
+        /* ─── Page hero override ─── */
+        .page-hero {
+            padding: 140px 24px 80px;
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .page-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108,92,231,0.1);
+            border: 1px solid rgba(108,92,231,0.2);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 28px;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        .page-hero p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0 auto 36px;
+        }
+        .page-hero .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .page-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .page-section + .page-section {
+            padding-top: 0;
+        }
+
+        /* ─── CTA section ─── */
+        .inner-cta {
+            text-align: center;
+            padding: 80px 24px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .inner-cta h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .inner-cta p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .inner-cta .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+<script>(function(){var l=localStorage.getItem('aicc-lang')||'vi';if(l==='vi')document.body.classList.add('lang-vi');document.documentElement.lang=l;if(localStorage.getItem('aicc-theme')!=='dark')document.body.classList.add('light');})();</script>
+<a href="#main-content" class="skip-link"><span class="en">Skip to main content</span><span class="vi">Chuyển đến nội dung chính</span></a>
+
+<!-- Navigation -->
+<nav aria-label="Main navigation">
+    <div class="logo">
+        <a href="/" class="logo-link">
+            <img src="../logo-white.png" class="logo-img" id="navLogo" alt="AICC.vn">
+        </a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="/solutions/"><span class="en">Solutions</span><span class="vi">Giải pháp</span></a></li>
+        <li><a href="/#heritage"><span class="en">Our Heritage</span><span class="vi">Di sản</span></a></li>
+        <li><a href="/components/" aria-current="page"><span class="en">Components</span><span class="vi">Thành phần</span></a></li>
+        <li><a href="/#how-it-works"><span class="en">How It Works</span><span class="vi">Cách hoạt động</span></a></li>
+        <li><a href="/#contact" class="nav-cta"><span class="en">Get Started</span><span class="vi">Bắt đầu</span></a></li>
+        <li>
+            <div class="lang-toggle">
+                <button class="lang-btn" onclick="setLang('en')" aria-pressed="false">EN</button>
+                <button class="lang-btn active" onclick="setLang('vi')" aria-pressed="true">VI</button>
+            </div>
+        </li>
+        <li>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle light/dark mode">🌙</button>
+        </li>
+    </ul>
+</nav>
+
+<main id="main-content">
+
+<!-- Hero -->
+<div class="page-hero">
+    <div class="breadcrumb" style="justify-content:center;">
+        <a href="/"><span class="en">Home</span><span class="vi">Trang chủ</span></a>
+        <span class="breadcrumb-sep">›</span>
+        <span><span class="en">Platform</span><span class="vi">Nền tảng</span></span>
+    </div>
+    <div class="hero-badge">
+        <span class="dot"></span>
+        <span class="en">The Technology Inside</span>
+        <span class="vi">Công nghệ Bên trong</span>
+    </div>
+    <h1>
+        <span class="en">Nine components.<br><span class="gradient-text">One unified platform.</span></span>
+        <span class="vi">Chín thành phần.<br><span class="gradient-text">Một nền tảng thống nhất.</span></span>
+    </h1>
+    <p>
+        <span class="en">Every AICC.vn product is assembled from the same modular platform. These nine components combine to handle any financial services AI use case.</span>
+        <span class="vi">Mỗi sản phẩm AICC.vn được lắp ráp từ cùng một nền tảng mô-đun. Chín thành phần này kết hợp để xử lý mọi tình huống AI dịch vụ tài chính.</span>
+    </p>
+    <div class="hero-buttons">
+        <a href="/#contact" class="btn-primary">
+            <span class="en">Request a Demo →</span>
+            <span class="vi">Yêu cầu Demo →</span>
+        </a>
+        <a href="/solutions/" class="btn-secondary">
+            <span class="en">See Financial Products</span>
+            <span class="vi">Xem Sản phẩm Tài chính</span>
+        </a>
+    </div>
+</div>
+
+<!-- Section A: Tech Components -->
+<section class="page-section" id="tech-components">
+    <div class="features-header fade-in">
+        <div class="section-label">
+            <span class="en">Core AI Engine</span>
+            <span class="vi">Động cơ AI Lõi</span>
+        </div>
+        <h2 class="section-title">
+            <span class="en">Nine Tech Components</span>
+            <span class="vi">Chín Thành phần Công nghệ</span>
+        </h2>
+    </div>
+
+    <div class="components-grid">
+
+        <!-- 1. Voice Engine -->
+        <div class="component-card fade-in" id="voice-engine">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">🎙️</div>
+            <h3><span class="en">Voice Engine</span><span class="vi">Động cơ Giọng nói</span></h3>
+            <p>
+                <span class="en">Vietnamese-optimized STT/TTS with regional dialect support and &lt;200ms call latency.</span>
+                <span class="vi">Nhận dạng và tổng hợp giọng nói tiếng Việt tối ưu với độ trễ &lt;200ms.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Orchestrator -->
+        <div class="component-card fade-in" id="orchestrator">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.18), rgba(0,206,201,0.06));">🔀</div>
+            <h3><span class="en">Orchestrator</span><span class="vi">Bộ điều phối</span></h3>
+            <p>
+                <span class="en">Multi-turn conversation manager controlling turn-taking, topic routing, and escalation.</span>
+                <span class="vi">Quản lý hội thoại đa lượt: kiểm soát luồng câu hỏi, chuyển chủ đề và leo thang xử lý.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Financial LLM -->
+        <div class="component-card fade-in" id="financial-llm">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.18), rgba(253,121,168,0.06));">🧠</div>
+            <h3><span class="en">Financial LLM</span><span class="vi">LLM Tài chính</span></h3>
+            <p>
+                <span class="en">Fine-tuned on Vietnamese banking, insurance, and securities terminology with cultural honorifics.</span>
+                <span class="vi">Được tinh chỉnh với thuật ngữ ngân hàng, bảo hiểm và chứng khoán tiếng Việt.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Knowledge / RAG -->
+        <div class="component-card fade-in" id="knowledge-rag">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.18), rgba(0,206,201,0.06));">📚</div>
+            <h3><span class="en">Knowledge / RAG</span><span class="vi">Kiến thức / RAG</span></h3>
+            <p>
+                <span class="en">Real-time retrieval from product catalogs, regulatory documents, and client profiles.</span>
+                <span class="vi">Truy xuất thời gian thực từ danh mục sản phẩm, văn bản pháp quy và hồ sơ khách hàng.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. Classifiers -->
+        <div class="component-card fade-in" id="classifiers">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">🏷️</div>
+            <h3><span class="en">Classifiers</span><span class="vi">Bộ phân loại</span></h3>
+            <p>
+                <span class="en">Intent detection, sentiment analysis, violation flagging, and lead scoring on every utterance.</span>
+                <span class="vi">Phát hiện ý định, phân tích cảm xúc và gắn nhãn vi phạm trên mỗi câu nói.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Action Layer -->
+        <div class="component-card fade-in" id="action-layer">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.18), rgba(253,121,168,0.06));">⚡</div>
+            <h3><span class="en">Action Layer</span><span class="vi">Lớp Hành động</span></h3>
+            <p>
+                <span class="en">API gateway to core banking, policy admin, claims, and CRM systems. Generates payment links and triggers workflows.</span>
+                <span class="vi">Cổng API kết nối ngân hàng lõi, quản lý hợp đồng, bồi thường và CRM. Tạo link thanh toán và kích hoạt quy trình.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 7. Compliance Guardrails -->
+        <div class="component-card fade-in" id="compliance-guardrails">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.18), rgba(0,206,201,0.06));">🛡️</div>
+            <h3><span class="en">Compliance Guardrails</span><span class="vi">Rào cản Tuân thủ</span></h3>
+            <p>
+                <span class="en">Circular 67 enforcement, PII protection, disclosure checking, and immutable audit logs.</span>
+                <span class="vi">Áp dụng Thông tư 67, bảo vệ PII, kiểm tra công bố thông tin và nhật ký kiểm toán bất biến.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 8. Channel Adapters -->
+        <div class="component-card fade-in" id="channel-adapters">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">📡</div>
+            <h3><span class="en">Channel Adapters</span><span class="vi">Bộ chuyển đổi Kênh</span></h3>
+            <p>
+                <span class="en">Unified connectors for phone, Zalo, web chat, email, and in-app. Single thread across all channels.</span>
+                <span class="vi">Kết nối thống nhất cho điện thoại, Zalo, web chat, email và ứng dụng. Một luồng xuyên suốt mọi kênh.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#policy-servicing"><span class="en">AI Policy Servicing</span><span class="vi">AI Phục vụ Hợp đồng</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#claims-assistant"><span class="en">AI Claims Assistant</span><span class="vi">AI Hỗ trợ Bồi thường</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#payment-support"><span class="en">AI Payment Support</span><span class="vi">AI Hỗ trợ Thanh toán</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#onboarding-ekyc"><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+            </ul>
+        </div>
+
+        <!-- 9. QA & Analytics -->
+        <div class="component-card fade-in" id="qa-analytics">
+            <div class="component-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.18), rgba(253,121,168,0.06));">📊</div>
+            <h3><span class="en">QA &amp; Analytics</span><span class="vi">QA &amp; Phân tích</span></h3>
+            <p>
+                <span class="en">Automated call scoring, coaching dashboards, trend analysis, and performance benchmarking.</span>
+                <span class="vi">Chấm điểm cuộc gọi tự động, bảng điều khiển coaching, phân tích xu hướng và đo lường hiệu suất.</span>
+            </p>
+            <div class="powers-label">
+                <span class="en">Powers these products</span>
+                <span class="vi">Hỗ trợ các sản phẩm</span>
+            </div>
+            <ul class="powers-list">
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#qa-compliance-monitor"><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#agent-copilot"><span class="en">AI Agent Copilot</span><span class="vi">AI Copilot Tổng đài viên</span></a></li>
+                <li class="power-item"><span class="power-dot primary"></span><a href="/solutions/#market-insight"><span class="en">AI Market Insight</span><span class="vi">AI Thông tin Thị trường</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#fraud-detection"><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></a></li>
+                <li class="power-item"><span class="power-dot secondary"></span><a href="/solutions/#sales-prep"><span class="en">AI Sales Prep</span><span class="vi">AI Chuẩn bị Bán hàng</span></a></li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- Matrix Section -->
+<section class="page-section" id="matrix" style="padding-top: 40px;">
+    <div class="features-header fade-in">
+        <div class="section-label">
+            <span class="en">Interactive Map</span>
+            <span class="vi">Bản đồ Tương tác</span>
+        </div>
+        <h2 class="section-title">
+            <span class="en">How components power products</span>
+            <span class="vi">Thành phần nào vận hành sản phẩm nào</span>
+        </h2>
+        <p class="section-desc">
+            <span class="en">Click any product row or component column to see exactly how they connect.</span>
+            <span class="vi">Nhấn vào hàng sản phẩm hoặc cột thành phần để xem liên kết chi tiết.</span>
+        </p>
+    </div>
+
+    <div class="matrix-wrap fade-in">
+        <style>
+            .matrix-wrap { overflow-x: auto; }
+            .mx-tab-row { display: flex; gap: 8px; margin-bottom: 16px; }
+            .mx-tab-btn {
+                padding: 6px 16px;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                background: transparent;
+                font-size: 0.82rem;
+                font-weight: 500;
+                color: var(--text-secondary);
+                cursor: pointer;
+                font-family: inherit;
+                transition: all 0.2s;
+            }
+            .mx-tab-btn.on {
+                background: rgba(108,92,231,0.12);
+                color: var(--accent-light);
+                border-color: rgba(108,92,231,0.3);
+            }
+            .mx-legend { display: flex; gap: 20px; align-items: center; margin-bottom: 16px; font-size: 0.8rem; color: var(--text-secondary); flex-wrap: wrap; }
+            .mx-legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+            .mx-matrix { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px; }
+            .mx-matrix th, .mx-matrix td { padding: 6px 4px; text-align: center; border: 0.5px solid var(--border); }
+            .mx-matrix th { font-weight: 500; font-size: 11px; color: var(--text-secondary); background: var(--bg-secondary); }
+            .mx-matrix .rh {
+                text-align: left;
+                font-weight: 500;
+                font-size: 11.5px;
+                color: var(--text-primary);
+                padding-left: 10px;
+                min-width: 160px;
+                cursor: pointer;
+                background: var(--bg-secondary);
+                transition: background 0.15s;
+            }
+            .mx-matrix .rh:hover { color: var(--accent-light); }
+            .mx-matrix .ch {
+                cursor: pointer;
+                font-size: 11px;
+                padding: 8px 6px;
+                transition: background 0.15s;
+                white-space: nowrap;
+                min-width: 80px;
+            }
+            .mx-matrix .ch:hover { color: var(--accent-light); }
+            .mx-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+            .mx-dot-p { background: #1D9E75; }
+            .mx-dot-s { background: #85B7EB; }
+            .mx-dot-empty { background: transparent; }
+            .mx-matrix td.mx-active { background: rgba(108,92,231,0.08); }
+            .mx-matrix .rh.mx-active { background: rgba(108,92,231,0.08); color: var(--accent-light); }
+            .mx-matrix .ch.mx-active { background: rgba(108,92,231,0.08); color: var(--accent-light); }
+            .mx-detail-title {
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: var(--text-primary);
+                margin: 20px 0 8px;
+            }
+            .mx-detail-box {
+                font-size: 0.82rem;
+                color: var(--text-secondary);
+                line-height: 1.8;
+                min-height: 72px;
+                padding: 14px 16px;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                background: var(--bg-secondary);
+            }
+            .mx-detail-box b { font-weight: 600; color: var(--text-primary); }
+        </style>
+
+        <div class="mx-tab-row">
+            <button class="mx-tab-btn on" onclick="mxShowView('tech',event)">
+                <span class="en">Nine tech components</span><span class="vi">Chín thành phần kỹ thuật</span>
+            </button>
+            <button class="mx-tab-btn" onclick="mxShowView('cap',event)">
+                <span class="en">Six capabilities</span><span class="vi">Sáu năng lực</span>
+            </button>
+        </div>
+
+        <div class="mx-legend">
+            <span><span class="mx-legend-dot" style="background:#1D9E75"></span><span class="en">Primary</span><span class="vi">Chính</span></span>
+            <span><span class="mx-legend-dot" style="background:#85B7EB"></span><span class="en">Secondary</span><span class="vi">Phụ</span></span>
+            <span style="font-style:italic"><span class="en">Click any row or column to see connections</span><span class="vi">Nhấn vào hàng hoặc cột để xem kết nối</span></span>
+        </div>
+
+        <div id="mx-tech-view">
+            <table class="mx-matrix" id="mx-tech-table">
+                <thead><tr>
+                    <th></th>
+                    <th class="ch" onclick="mxSelCol(0,'tech')">Voice engine</th>
+                    <th class="ch" onclick="mxSelCol(1,'tech')">Orchestrator</th>
+                    <th class="ch" onclick="mxSelCol(2,'tech')">Financial LLM</th>
+                    <th class="ch" onclick="mxSelCol(3,'tech')">Knowledge / RAG</th>
+                    <th class="ch" onclick="mxSelCol(4,'tech')">Classifiers</th>
+                    <th class="ch" onclick="mxSelCol(5,'tech')">Action layer</th>
+                    <th class="ch" onclick="mxSelCol(6,'tech')">Compliance</th>
+                    <th class="ch" onclick="mxSelCol(7,'tech')">Channels</th>
+                    <th class="ch" onclick="mxSelCol(8,'tech')">QA & analytics</th>
+                </tr></thead>
+                <tbody id="mx-tech-body"></tbody>
+            </table>
+        </div>
+
+        <div id="mx-cap-view" style="display:none">
+            <table class="mx-matrix" id="mx-cap-table">
+                <thead><tr>
+                    <th></th>
+                    <th class="ch" onclick="mxSelCol(0,'cap')">Inbound AI</th>
+                    <th class="ch" onclick="mxSelCol(1,'cap')">Outbound AI</th>
+                    <th class="ch" onclick="mxSelCol(2,'cap')">QAQC & Compliance</th>
+                    <th class="ch" onclick="mxSelCol(3,'cap')">Agent Copilot</th>
+                    <th class="ch" onclick="mxSelCol(4,'cap')">Conversation Intel</th>
+                    <th class="ch" onclick="mxSelCol(5,'cap')">Orchestration</th>
+                </tr></thead>
+                <tbody id="mx-cap-body"></tbody>
+            </table>
+        </div>
+
+        <div class="mx-detail-title" id="mx-detail-title">
+            <span class="en">Click any product or component to see connections</span>
+            <span class="vi">Nhấn vào sản phẩm hoặc thành phần để xem kết nối</span>
+        </div>
+        <div class="mx-detail-box" id="mx-detail-box">
+            <span class="en">This matrix maps every financial services product to the platform components it uses. Green = primary dependency, blue = secondary.</span>
+            <span class="vi">Ma trận này ánh xạ từng sản phẩm tài chính với các thành phần nền tảng mà nó sử dụng. Xanh lá = phụ thuộc chính, xanh dương = phụ.</span>
+        </div>
+
+        <script>
+        (function() {
+            const mxProducts = [
+                'AI QA & compliance monitor','AI policy servicing assistant','AI claims assistant',
+                'AI payment support','AI agent copilot','AI onboarding & eKYC',
+                'AI fraud detection','AI market insight assistant','AI sales preparation assistant'
+            ];
+            const mxProductLinks = [
+                '/solutions/#qa-compliance-monitor','/solutions/#policy-servicing','/solutions/#claims-assistant',
+                '/solutions/#payment-support','/solutions/#agent-copilot','/solutions/#onboarding-ekyc',
+                '/solutions/#fraud-detection','/solutions/#market-insight','/solutions/#sales-prep'
+            ];
+            const mxTechCols = ['Voice engine','Orchestrator','Financial LLM','Knowledge / RAG','Classifiers','Action layer','Compliance','Channels','QA & analytics'];
+            const mxCapCols  = ['Inbound AI','Outbound AI','QAQC & Compliance','Agent Copilot','Conversation Intel','Orchestration'];
+            const mxTechMatrix = [
+                [1,1,0,1,1,0,1,0,2],[2,2,1,2,1,2,1,2,0],[2,2,1,2,1,2,1,2,0],
+                [2,0,1,1,1,2,1,2,0],[1,1,1,2,2,1,0,0,2],[0,1,0,1,2,2,2,1,0],
+                [2,1,1,0,2,2,1,2,1],[1,1,2,2,2,1,0,1,2],[2,1,2,2,1,1,1,2,1]
+            ];
+            const mxCapMatrix = [
+                [0,0,2,0,1,0],[2,2,0,0,0,1],[2,0,0,0,0,1],
+                [0,2,0,0,0,1],[0,0,0,2,1,0],[2,0,0,0,0,1],
+                [0,2,1,0,1,0],[2,0,0,1,1,0],[0,2,1,1,0,0]
+            ];
+            const mxTechLinks = {
+                'AI QA & compliance monitor':       { p:'Voice engine transcribes 100% of calls; Classifiers detect sentiment, intent, and policy violations; Compliance guardrails enforce Circular 67 disclosure rules', s:'QA & analytics provides scoring dashboards and coaching insights; Orchestrator manages real-time monitoring pipeline' },
+                'AI policy servicing assistant':    { p:'Financial LLM handles Vietnamese insurance terminology and honorifics; Classifiers detect customer intent; Action layer connects to policy admin system', s:'Voice engine for phone channel; Orchestrator for conversation flow; Knowledge/RAG for product catalogs; Channels for Zalo/web' },
+                'AI claims assistant':              { p:'Financial LLM understands claims terminology; Classifiers detect claim type and urgency; Action layer routes to claims system', s:'Voice engine for phone; Orchestrator for dialog; Knowledge/RAG for claims procedures; Channels for omnichannel' },
+                'AI payment support':               { p:'Financial LLM for payment and lending terms; Classifiers detect promise-to-pay vs refusal; Action layer generates payment links', s:'Voice engine for outbound calls; Knowledge/RAG for account data; Channels for SMS/Zalo; Compliance for disclosure' },
+                'AI agent copilot':                 { p:'Voice engine for real-time transcription; Orchestrator for live suggestions; Financial LLM for context-aware recommendations; Knowledge/RAG for instant reference lookup', s:'Classifiers detect customer emotion in real-time; Action layer pushes CRM updates; QA & analytics scores agent performance' },
+                'AI onboarding & eKYC':             { p:'Classifiers validate document types and detect fraud signals; Action layer connects to CCCD/biometric systems; Compliance enforces PII protection', s:'Orchestrator manages multi-step verification flow; Knowledge/RAG for regulatory requirements; Channels for app/web' },
+                'AI fraud detection':               { p:'Classifiers flag suspicious patterns and document mismatches; Action layer triggers verification workflows; Compliance logs all decisions', s:'Voice engine for outbound verification calls; Orchestrator for escalation routing; Financial LLM for transaction context; Channels for multi-channel alerts' },
+                'AI market insight assistant':      { p:'Financial LLM generates Vietnamese market commentary; Knowledge/RAG pulls market data and research; Classifiers detect client interest signals', s:'Voice engine for voice delivery; Orchestrator for conversation flow; Action layer updates CRM; QA & analytics tracks engagement' },
+                'AI sales preparation assistant':   { p:'Financial LLM for product knowledge and Vietnamese sales language; Knowledge/RAG for product catalogs and client history; Classifiers for lead scoring', s:'Voice engine for outbound; Orchestrator for call flow; Action layer logs outcomes; Compliance ensures regulated sales process; Channels for outreach' }
+            };
+            const mxCapLinks = {
+                'AI QA & compliance monitor':       { p:'QAQC & Compliance AI (primary function)', s:'Conversation Intelligence for deeper analysis' },
+                'AI policy servicing assistant':    { p:'Inbound AI + Outbound AI (handles both directions)', s:'Orchestration connects to policy admin and payment gateways' },
+                'AI claims assistant':              { p:'Inbound AI (customer-initiated claims)', s:'Orchestration connects to claims system and Zalo' },
+                'AI payment support':               { p:'Outbound AI (proactive reminders)', s:'Orchestration connects to lending system and payment links' },
+                'AI agent copilot':                 { p:'Agent Copilot AI (real-time assist)', s:'Conversation Intelligence for context and suggestions' },
+                'AI onboarding & eKYC':             { p:'Inbound AI (customer self-service)', s:'Orchestration connects to CCCD and biometric systems' },
+                'AI fraud detection':               { p:'Outbound AI (verification calls)', s:'Conversation Intelligence for pattern detection; QAQC for audit' },
+                'AI market insight assistant':      { p:'Inbound AI + Agent Copilot AI', s:'Conversation Intelligence for client engagement analysis' },
+                'AI sales preparation assistant':   { p:'Outbound AI (sales outreach)', s:'Agent Copilot for pre-call prep; QAQC for regulated sales compliance' }
+            };
+
+            function mxBuildTable(bodyId, matrix, view) {
+                const body = document.getElementById(bodyId);
+                body.innerHTML = '';
+                mxProducts.forEach((p, ri) => {
+                    const tr = document.createElement('tr');
+                    const th = document.createElement('td');
+                    th.className = 'rh';
+                    const a = document.createElement('a');
+                    a.href = mxProductLinks[ri];
+                    a.textContent = p;
+                    a.style.cssText = 'color:inherit;text-decoration:none;';
+                    a.addEventListener('mouseover', () => a.style.color = 'var(--accent-light)');
+                    a.addEventListener('mouseout',  () => a.style.color = '');
+                    th.appendChild(a);
+                    th.onclick = (e) => { if (e.target.tagName !== 'A') mxSelRow(ri, view); else mxSelRow(ri, view); };
+                    tr.appendChild(th);
+                    matrix[ri].forEach((v, ci) => {
+                        const td = document.createElement('td');
+                        const dot = document.createElement('span');
+                        dot.className = 'mx-dot ' + (v === 2 ? 'mx-dot-p' : v === 1 ? 'mx-dot-s' : 'mx-dot-empty');
+                        td.appendChild(dot);
+                        td.onclick = () => mxSelRow(ri, view);
+                        tr.appendChild(td);
+                    });
+                    body.appendChild(tr);
+                });
+            }
+
+            function mxClearHL(tableId) {
+                document.querySelectorAll('#'+tableId+' .mx-active').forEach(e => e.classList.remove('mx-active'));
+            }
+
+            window.mxSelRow = function(ri, view) {
+                const tableId = 'mx-' + view + '-table';
+                mxClearHL(tableId);
+                const rows = document.querySelectorAll('#'+tableId+' tbody tr');
+                rows[ri].querySelector('.rh').classList.add('mx-active');
+                rows[ri].querySelectorAll('td:not(.rh)').forEach(td => td.classList.add('mx-active'));
+                const links = view === 'tech' ? mxTechLinks[mxProducts[ri]] : mxCapLinks[mxProducts[ri]];
+                document.getElementById('mx-detail-title').textContent = mxProducts[ri];
+                document.getElementById('mx-detail-box').innerHTML = '<b>Primary:</b> ' + links.p + '<br><br><b>Secondary:</b> ' + links.s;
+            };
+
+            window.mxSelCol = function(ci, view) {
+                const tableId = 'mx-' + view + '-table';
+                const cols = view === 'tech' ? mxTechCols : mxCapCols;
+                const matrix = view === 'tech' ? mxTechMatrix : mxCapMatrix;
+                mxClearHL(tableId);
+                document.querySelectorAll('#'+tableId+' thead th')[ci+1].classList.add('mx-active');
+                document.querySelectorAll('#'+tableId+' tbody tr').forEach((row, ri) => {
+                    row.querySelectorAll('td')[ci+1].classList.add('mx-active');
+                });
+                const powered = [];
+                matrix.forEach((row, ri) => {
+                    if (row[ci] === 2) powered.push('<b>' + mxProducts[ri] + '</b> (primary)');
+                    else if (row[ci] === 1) powered.push(mxProducts[ri] + ' (secondary)');
+                });
+                document.getElementById('mx-detail-title').textContent = cols[ci];
+                document.getElementById('mx-detail-box').innerHTML = powered.length
+                    ? '<b>Powers these products:</b><br>' + powered.join('<br>')
+                    : 'No direct product connections.';
+            };
+
+            window.mxShowView = function(v, e) {
+                document.getElementById('mx-tech-view').style.display = v === 'tech' ? '' : 'none';
+                document.getElementById('mx-cap-view').style.display  = v === 'cap'  ? '' : 'none';
+                document.querySelectorAll('.mx-tab-btn').forEach(b => b.classList.remove('on'));
+                e.target.closest('.mx-tab-btn').classList.add('on');
+                document.getElementById('mx-detail-title').innerHTML = '<span class="en">Click any product or component to see connections</span><span class="vi">Nhấn vào sản phẩm hoặc thành phần để xem kết nối</span>';
+                document.getElementById('mx-detail-box').innerHTML = '<span class="en">Switch views to see how products connect to tech components or buyer-facing capabilities.</span><span class="vi">Chuyển chế độ xem để thấy sản phẩm kết nối với thành phần kỹ thuật hoặc năng lực hướng đến người mua.</span>';
+            };
+
+            mxBuildTable('mx-tech-body', mxTechMatrix, 'tech');
+            mxBuildTable('mx-cap-body',  mxCapMatrix,  'cap');
+        })();
+        </script>
+    </div>
+</section>
+
+<!-- Section B: Capabilities -->
+<section class="page-section" id="capabilities" style="padding-top: 40px;">
+    <div class="features-header fade-in">
+        <div class="section-label">
+            <span class="en">Buyer-Facing Capabilities</span>
+            <span class="vi">Năng lực Hướng đến Khách hàng</span>
+        </div>
+        <h2 class="section-title">
+            <span class="en">Six Ways Enterprises Buy AICC.vn</span>
+            <span class="vi">Sáu Cách Doanh nghiệp Triển khai AICC.vn</span>
+        </h2>
+        <p class="section-desc">
+            <span class="en">While the platform has nine technical components, enterprise buyers typically purchase one of six capability bundles — each mapping to a specific business outcome.</span>
+            <span class="vi">Trong khi nền tảng có chín thành phần kỹ thuật, khách hàng doanh nghiệp thường mua một trong sáu gói năng lực — mỗi gói gắn với một kết quả kinh doanh cụ thể.</span>
+        </p>
+    </div>
+
+    <div class="caps-grid">
+
+        <!-- 1. Inbound AI -->
+        <div class="cap-card fade-in">
+            <div class="cap-card-header">
+                <span class="cap-icon">📥</span>
+                <h3><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></h3>
+            </div>
+            <p>
+                <span class="en">Self-service AI that handles customer-initiated calls and chats 24/7 with no wait time.</span>
+                <span class="vi">AI tiếp nhận xử lý cuộc gọi và chat của khách hàng 24/7, không thời gian chờ.</span>
+            </p>
+            <div class="cap-products-label">
+                <span class="en">Products</span><span class="vi">Sản phẩm</span>
+            </div>
+            <div class="cap-products">
+                <a href="/solutions/#policy-servicing" class="cap-product-tag primary"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
+                <a href="/solutions/#claims-assistant" class="cap-product-tag primary"><span class="en">Claims Assistant</span><span class="vi">Hỗ trợ Bồi thường</span></a>
+                <a href="/solutions/#onboarding-ekyc" class="cap-product-tag primary"><span class="en">Onboarding &amp; eKYC</span><span class="vi">Onboarding &amp; eKYC</span></a>
+                <a href="/solutions/#market-insight" class="cap-product-tag primary"><span class="en">Market Insight</span><span class="vi">Thông tin Thị trường</span></a>
+            </div>
+        </div>
+
+        <!-- 2. Outbound AI -->
+        <div class="cap-card fade-in">
+            <div class="cap-card-header">
+                <span class="cap-icon">📤</span>
+                <h3><span class="en">Outbound AI</span><span class="vi">AI Gọi ra</span></h3>
+            </div>
+            <p>
+                <span class="en">Proactive AI-initiated calls for collections, sales outreach, and fraud verification.</span>
+                <span class="vi">AI chủ động gọi ra cho thu hồi nợ, bán hàng và xác minh gian lận.</span>
+            </p>
+            <div class="cap-products-label">
+                <span class="en">Products</span><span class="vi">Sản phẩm</span>
+            </div>
+            <div class="cap-products">
+                <a href="/solutions/#policy-servicing" class="cap-product-tag primary"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
+                <a href="/solutions/#payment-support" class="cap-product-tag primary"><span class="en">Payment Support</span><span class="vi">Hỗ trợ Thanh toán</span></a>
+                <a href="/solutions/#fraud-detection" class="cap-product-tag primary"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
+                <a href="/solutions/#sales-prep" class="cap-product-tag primary"><span class="en">Sales Prep</span><span class="vi">Chuẩn bị Bán hàng</span></a>
+            </div>
+        </div>
+
+        <!-- 3. QAQC & Compliance AI -->
+        <div class="cap-card fade-in">
+            <div class="cap-card-header">
+                <span class="cap-icon">✅</span>
+                <h3><span class="en">QAQC &amp; Compliance AI</span><span class="vi">AI QA &amp; Tuân thủ</span></h3>
+            </div>
+            <p>
+                <span class="en">Automated quality scoring and regulatory compliance checking on every call — not a sample.</span>
+                <span class="vi">Chấm điểm chất lượng tự động và kiểm tra tuân thủ pháp quy trên mọi cuộc gọi.</span>
+            </p>
+            <div class="cap-products-label">
+                <span class="en">Products</span><span class="vi">Sản phẩm</span>
+            </div>
+            <div class="cap-products">
+                <a href="/solutions/#qa-compliance-monitor" class="cap-product-tag primary"><span class="en">QA &amp; Compliance Monitor</span><span class="vi">Giám sát QA &amp; Tuân thủ</span></a>
+                <a href="/solutions/#fraud-detection" class="cap-product-tag"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
+                <a href="/solutions/#sales-prep" class="cap-product-tag"><span class="en">Sales Prep</span><span class="vi">Chuẩn bị Bán hàng</span></a>
+            </div>
+        </div>
+
+        <!-- 4. Agent Copilot AI -->
+        <div class="cap-card fade-in">
+            <div class="cap-card-header">
+                <span class="cap-icon">🤝</span>
+                <h3><span class="en">Agent Copilot AI</span><span class="vi">AI Copilot Tổng đài viên</span></h3>
+            </div>
+            <p>
+                <span class="en">Real-time AI assistance for live human agents: suggested responses, compliance cues, knowledge lookups.</span>
+                <span class="vi">Hỗ trợ AI thời gian thực cho tổng đài viên đang trực tuyến: gợi ý phản hồi, cảnh báo tuân thủ, tra cứu kiến thức.</span>
+            </p>
+            <div class="cap-products-label">
+                <span class="en">Products</span><span class="vi">Sản phẩm</span>
+            </div>
+            <div class="cap-products">
+                <a href="/solutions/#agent-copilot" class="cap-product-tag primary"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài viên</span></a>
+                <a href="/solutions/#market-insight" class="cap-product-tag"><span class="en">Market Insight</span><span class="vi">Thông tin Thị trường</span></a>
+                <a href="/solutions/#sales-prep" class="cap-product-tag"><span class="en">Sales Prep</span><span class="vi">Chuẩn bị Bán hàng</span></a>
+            </div>
+        </div>
+
+        <!-- 5. Conversation Intelligence -->
+        <div class="cap-card fade-in">
+            <div class="cap-card-header">
+                <span class="cap-icon">💡</span>
+                <h3><span class="en">Conversation Intelligence</span><span class="vi">Thông minh Hội thoại</span></h3>
+            </div>
+            <p>
+                <span class="en">Post-call analysis, insight extraction, and trend detection across all interactions.</span>
+                <span class="vi">Phân tích sau cuộc gọi, trích xuất thông tin và phát hiện xu hướng trên toàn bộ tương tác.</span>
+            </p>
+            <div class="cap-products-label">
+                <span class="en">Products</span><span class="vi">Sản phẩm</span>
+            </div>
+            <div class="cap-products">
+                <a href="/solutions/#qa-compliance-monitor" class="cap-product-tag"><span class="en">QA &amp; Compliance Monitor</span><span class="vi">Giám sát QA &amp; Tuân thủ</span></a>
+                <a href="/solutions/#agent-copilot" class="cap-product-tag"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài viên</span></a>
+                <a href="/solutions/#fraud-detection" class="cap-product-tag"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
+                <a href="/solutions/#market-insight" class="cap-product-tag"><span class="en">Market Insight</span><span class="vi">Thông tin Thị trường</span></a>
+            </div>
+        </div>
+
+        <!-- 6. AI Orchestration -->
+        <div class="cap-card fade-in">
+            <div class="cap-card-header">
+                <span class="cap-icon">🔗</span>
+                <h3><span class="en">AI Orchestration</span><span class="vi">Điều phối AI</span></h3>
+            </div>
+            <p>
+                <span class="en">Integration layer connecting AI workflows to core banking, CRM, claims, and payment systems.</span>
+                <span class="vi">Lớp tích hợp kết nối quy trình AI với ngân hàng lõi, CRM, bồi thường và hệ thống thanh toán.</span>
+            </p>
+            <div class="cap-products-label">
+                <span class="en">Products</span><span class="vi">Sản phẩm</span>
+            </div>
+            <div class="cap-products">
+                <a href="/solutions/#policy-servicing" class="cap-product-tag"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
+                <a href="/solutions/#claims-assistant" class="cap-product-tag"><span class="en">Claims Assistant</span><span class="vi">Hỗ trợ Bồi thường</span></a>
+                <a href="/solutions/#payment-support" class="cap-product-tag"><span class="en">Payment Support</span><span class="vi">Hỗ trợ Thanh toán</span></a>
+                <a href="/solutions/#onboarding-ekyc" class="cap-product-tag"><span class="en">Onboarding &amp; eKYC</span><span class="vi">Onboarding &amp; eKYC</span></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Section C: Deployment -->
+<section class="page-section" id="deployment" style="padding-top: 40px;">
+    <div class="features-header fade-in">
+        <div class="section-label">
+            <span class="en">Deployment Models</span>
+            <span class="vi">Mô hình Triển khai</span>
+        </div>
+        <h2 class="section-title">
+            <span class="en">Two Paths to Production</span>
+            <span class="vi">Hai Con đường đến Sản xuất</span>
+        </h2>
+        <p class="section-desc">
+            <span class="en">Whether you're augmenting existing infrastructure or building AI-first, AICC.vn fits your architecture.</span>
+            <span class="vi">Dù bạn đang nâng cấp hạ tầng hiện có hay xây dựng AI-first, AICC.vn phù hợp với kiến trúc của bạn.</span>
+        </p>
+    </div>
+
+    <div class="deploy-grid fade-in">
+        <div class="deploy-card">
+            <div class="deploy-badge"><span class="en">Fastest Go-Live</span><span class="vi">Triển khai Nhanh nhất</span></div>
+            <h3><span class="en">AI Overlay</span><span class="vi">AI Overlay</span></h3>
+            <p>
+                <span class="en">Deploy on top of existing Genesys, Avaya, or NICE telephony infrastructure. Zero disruption to current operations — AICC.vn adds intelligence without replacing your existing investment.</span>
+                <span class="vi">Triển khai trên hạ tầng viễn thông Genesys, Avaya hoặc NICE hiện có. Không gián đoạn hoạt động hiện tại — AICC.vn bổ sung trí tuệ mà không thay thế đầu tư hiện có của bạn.</span>
+            </p>
+            <ul>
+                <li><span class="en">4-week go-live from contract signing</span><span class="vi">Go-live trong 4 tuần kể từ ký hợp đồng</span></li>
+                <li><span class="en">No hardware replacement required</span><span class="vi">Không cần thay thế phần cứng</span></li>
+                <li><span class="en">Seamless agent desktop integration</span><span class="vi">Tích hợp liền mạch với desktop tổng đài viên</span></li>
+                <li><span class="en">Parallel operation during rollout</span><span class="vi">Vận hành song song trong quá trình triển khai</span></li>
+            </ul>
+        </div>
+        <div class="deploy-card featured">
+            <div class="deploy-badge"><span class="en">Maximum Capability</span><span class="vi">Năng lực Tối đa</span></div>
+            <h3><span class="en">AI-Native Stack</span><span class="vi">Stack AI-Native</span></h3>
+            <p>
+                <span class="en">Full platform replacement with AICC.vn as the telephony layer. Maximum AI capability with every component working together from day one. Recommended for greenfield deployments and digital-first organizations.</span>
+                <span class="vi">Thay thế toàn bộ nền tảng với AICC.vn là lớp viễn thông. Năng lực AI tối đa với mọi thành phần hoạt động cùng nhau từ ngày đầu. Phù hợp cho triển khai mới và tổ chức digital-first.</span>
+            </p>
+            <ul>
+                <li><span class="en">All nine components fully integrated</span><span class="vi">Cả chín thành phần tích hợp hoàn toàn</span></li>
+                <li><span class="en">Cloud-native, infinitely scalable</span><span class="vi">Cloud-native, mở rộng vô hạn</span></li>
+                <li><span class="en">Single vendor, unified support</span><span class="vi">Một nhà cung cấp, hỗ trợ thống nhất</span></li>
+                <li><span class="en">On-premise or private cloud options</span><span class="vi">Tùy chọn on-premise hoặc private cloud</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="inner-cta fade-in">
+    <div class="section-label" style="justify-content:center; margin-bottom: 16px;">
+        <span class="en">Get Started</span>
+        <span class="vi">Bắt đầu ngay</span>
+    </div>
+    <h2>
+        <span class="en">Ready to see the platform in action?</span>
+        <span class="vi">Sẵn sàng thấy nền tảng hoạt động?</span>
+    </h2>
+    <p>
+        <span class="en">Our engineers will walk you through a live demo tailored to your specific financial services use case.</span>
+        <span class="vi">Kỹ sư của chúng tôi sẽ hướng dẫn bạn qua bản demo trực tiếp phù hợp với tình huống dịch vụ tài chính cụ thể của bạn.</span>
+    </p>
+    <div class="hero-buttons">
+        <a href="/#contact" class="btn-primary">
+            <span class="en">Request a Demo →</span>
+            <span class="vi">Yêu cầu Demo →</span>
+        </a>
+        <a href="/solutions/" class="btn-secondary">
+            <span class="en">Browse All Products</span>
+            <span class="vi">Xem tất cả Sản phẩm</span>
+        </a>
+    </div>
+</div>
+
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <div class="logo">
+                <img src="../logo-white.png" class="logo-img" id="footerLogo" alt="AICC.vn">
+            </div>
+            <p>
+                <span class="en">Vietnam's leading AI Contact Center platform, powered by proven Korean technology and local expertise.</span>
+                <span class="vi">Nền tảng Trung tâm Liên lạc AI hàng đầu Việt Nam, được hỗ trợ bởi công nghệ Hàn Quốc đã được chứng minh và chuyên môn địa phương.</span>
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4><span class="en">Platform</span><span class="vi">Nền tảng</span></h4>
+            <a href="/components/#voice-engine"><span class="en">Voice Engine</span><span class="vi">Động cơ Giọng nói</span></a>
+            <a href="/components/#financial-llm"><span class="en">Financial LLM</span><span class="vi">LLM Tài chính</span></a>
+            <a href="/components/#compliance-guardrails"><span class="en">Compliance Guardrails</span><span class="vi">Rào cản Tuân thủ</span></a>
+            <a href="/components/#qa-analytics"><span class="en">QA &amp; Analytics</span><span class="vi">QA &amp; Phân tích</span></a>
+        </div>
+        <div class="footer-col">
+            <h4><span class="en">Solutions</span><span class="vi">Giải pháp</span></h4>
+            <a href="/solutions/#policy-servicing"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
+            <a href="/solutions/#claims-assistant"><span class="en">Claims Assistant</span><span class="vi">Hỗ trợ Bồi thường</span></a>
+            <a href="/solutions/#fraud-detection"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
+            <a href="/solutions/#agent-copilot"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài viên</span></a>
+        </div>
+        <div class="footer-col">
+            <h4><span class="en">Company</span><span class="vi">Công ty</span></h4>
+            <a href="/#heritage"><span class="en">About Us</span><span class="vi">Về chúng tôi</span></a>
+            <a href="/#contact"><span class="en">Contact</span><span class="vi">Liên hệ</span></a>
+            <a href="https://odaai.io" target="_blank" rel="noopener">Odaai.io</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>
+            <span>&copy; <span id="copyrightYear"></span> AICC.vn — All rights reserved.</span>
+        </div>
+        <div class="footer-flags">
+            <span title="Vietnam">&#127483;&#127475;</span>
+            <span title="Korea">&#127472;&#127479;</span>
+        </div>
+    </div>
+</footer>
+
+<script src="../main.js" defer></script>
+</body>
+</html>
