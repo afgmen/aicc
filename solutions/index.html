@@ -248,6 +248,39 @@
             border-color: rgba(29,158,117,0.35);
         }
 
+        /* Category section headers */
+        .category-header {
+            padding: 56px 0 28px;
+            border-top: 1px solid var(--border);
+            margin-top: 8px;
+        }
+        .category-header:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+        .category-header-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .category-header h2 {
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+        .category-header p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 640px;
+            margin: 0;
+        }
+
         /* Inner CTA */
         .inner-cta {
             text-align: center;
@@ -343,62 +376,31 @@
 
 <!-- Quick Nav -->
 <div class="quick-nav" role="navigation" aria-label="Product navigation">
-    <a href="#qa-compliance-monitor"><span class="en">QA &amp; Compliance Monitor</span><span class="vi">Giám sát QA &amp; Tuân thủ</span></a>
+    <a href="#ai-voice-agents" style="font-weight:700; color: var(--accent-light);"><span class="en">AI Voice &amp; Chat Agents</span><span class="vi">AI Voice &amp; Chat</span></a>
     <a href="#policy-servicing"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
-    <a href="#claims-assistant"><span class="en">Claims Assistant</span><span class="vi">Hỗ trợ Bồi thường</span></a>
-    <a href="#payment-support"><span class="en">Payment Support</span><span class="vi">Hỗ trợ Thanh toán</span></a>
+    <a href="#claims-assistant"><span class="en">Claims</span><span class="vi">Bồi thường</span></a>
+    <a href="#payment-support"><span class="en">Payment</span><span class="vi">Thanh toán</span></a>
+    <a href="#onboarding-ekyc"><span class="en">eKYC</span><span class="vi">eKYC</span></a>
+    <a href="#ai-copilot" style="font-weight:700; color: var(--accent-light);"><span class="en">AI Copilot</span><span class="vi">AI Copilot</span></a>
     <a href="#agent-copilot"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài viên</span></a>
-    <a href="#onboarding-ekyc"><span class="en">Onboarding &amp; eKYC</span><span class="vi">Onboarding &amp; eKYC</span></a>
-    <a href="#fraud-detection"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
-    <a href="#market-insight"><span class="en">Market Insight</span><span class="vi">Thông tin Thị trường</span></a>
+    <a href="#market-insight"><span class="en">Market Insight</span><span class="vi">Thị trường</span></a>
     <a href="#sales-prep"><span class="en">Sales Prep</span><span class="vi">Chuẩn bị Bán hàng</span></a>
+    <a href="#ai-intelligence" style="font-weight:700; color: var(--accent-light);"><span class="en">AI Intelligence</span><span class="vi">AI Intelligence</span></a>
+    <a href="#qa-compliance-monitor"><span class="en">QA Monitor</span><span class="vi">Giám sát QA</span></a>
+    <a href="#fraud-detection"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
 </div>
 
 <!-- Products -->
 <div class="products-container">
 
-    <!-- 1. AI QA & Compliance Monitor -->
-    <div class="product-detail fade-in" id="qa-compliance-monitor">
-        <div class="product-detail-header">
-            <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">🎧</div>
-            <div class="product-detail-title">
-                <h3><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></h3>
-                <div class="product-caps">
-                    <span class="product-cap-tag primary"><span class="en">QAQC &amp; Compliance</span><span class="vi">QA &amp; Tuân thủ</span></span>
-                    <span class="product-cap-tag secondary"><span class="en">Conversation Intelligence</span><span class="vi">Thông minh Hội thoại</span></span>
-                </div>
-            </div>
-        </div>
-        <div class="product-detail-content">
-            <div class="problem-block">
-                <h4><span class="en">The Problem</span><span class="vi">Vấn đề</span></h4>
-                <p>
-                    <span class="en">Banks and insurers manually review 2–5% of calls. That means 95%+ of agent conversations — and potential Circular 67 violations — go unmonitored. Fines and reputational damage compound over time.</span>
-                    <span class="vi">Ngân hàng và công ty bảo hiểm kiểm tra thủ công 2–5% cuộc gọi. Điều đó có nghĩa là 95%+ cuộc trò chuyện của tổng đài viên — và các vi phạm Thông tư 67 tiềm ẩn — không được giám sát. Phạt và thiệt hại danh tiếng tích lũy theo thời gian.</span>
-                </p>
-            </div>
-            <div class="solution-block">
-                <h4><span class="en">The Solution</span><span class="vi">Giải pháp</span></h4>
-                <p>
-                    <span class="en">AICC.vn scores every call automatically. Voice Engine transcribes 100% of recordings; Classifiers detect violations, sentiment, and coaching moments; Compliance Guardrails enforce Circular 67 disclosure rules in real time. Supervisors review exceptions — not entire queues.</span>
-                    <span class="vi">AICC.vn chấm điểm mọi cuộc gọi tự động. Voice Engine phiên âm 100% bản ghi âm; Classifiers phát hiện vi phạm, cảm xúc và cơ hội coaching; Compliance Guardrails áp dụng quy tắc công bố Thông tư 67 theo thời gian thực. Giám sát viên xem xét ngoại lệ — không phải toàn bộ hàng đợi.</span>
-                </p>
-                <div class="built-on-section">
-                    <div class="built-on-label"><span class="en">Built on AICC.vn's platform</span><span class="vi">Xây dựng trên nền tảng AICC.vn</span></div>
-                    <div class="built-on-tags">
-                        <a href="/components/#qa-analytics" class="built-on-tag primary">QA &amp; Analytics</a>
-                        <a href="/components/#voice-engine" class="built-on-tag">Voice Engine</a>
-                        <a href="/components/#classifiers" class="built-on-tag">Classifiers</a>
-                        <a href="/components/#compliance-guardrails" class="built-on-tag">Compliance Guardrails</a>
-                        <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
-                        <a href="/components/#knowledge-rag" class="built-on-tag">Knowledge / RAG</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ── Category 1: AI Voice & Chat Agents ── -->
+    <div class="category-header" id="ai-voice-agents">
+        <div class="category-header-label"><span class="en">Category 1 of 3</span><span class="vi">Danh mục 1 / 3</span></div>
+        <h2><span class="en">AI Voice &amp; Chat Agents</span><span class="vi">AI Voice &amp; Chat</span></h2>
+        <p><span class="en">Autonomous AI that handles inbound and outbound customer interactions 24/7 — no human agent required.</span><span class="vi">AI tự động xử lý tương tác khách hàng chiều vào và chiều ra 24/7 — không cần tổng đài viên.</span></p>
     </div>
 
-    <!-- 2. AI Policy Servicing Assistant -->
+    <!-- 1. AI Policy Servicing Assistant -->
     <div class="product-detail fade-in" id="policy-servicing">
         <div class="product-detail-header">
             <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.18), rgba(0,206,201,0.06));">📋</div>
@@ -527,6 +529,54 @@
         </div>
     </div>
 
+    <!-- 4. AI Onboarding & eKYC -->
+    <div class="product-detail fade-in" id="onboarding-ekyc">
+        <div class="product-detail-header">
+            <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.18), rgba(253,121,168,0.06));">🪪</div>
+            <div class="product-detail-title">
+                <h3><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></h3>
+                <div class="product-caps">
+                    <span class="product-cap-tag primary"><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></span>
+                    <span class="product-cap-tag secondary"><span class="en">AI Orchestration</span><span class="vi">Điều phối AI</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="product-detail-content">
+            <div class="problem-block">
+                <h4><span class="en">The Problem</span><span class="vi">Vấn đề</span></h4>
+                <p>
+                    <span class="en">Manual KYC takes 3–7 days, involves document handling, and creates friction at the critical onboarding moment. Fraud risks increase when document validation is human-dependent.</span>
+                    <span class="vi">KYC thủ công mất 3–7 ngày, liên quan đến xử lý tài liệu và tạo ma sát vào thời điểm onboarding quan trọng. Rủi ro gian lận tăng khi xác thực tài liệu phụ thuộc vào con người.</span>
+                </p>
+            </div>
+            <div class="solution-block">
+                <h4><span class="en">The Solution</span><span class="vi">Giải pháp</span></h4>
+                <p>
+                    <span class="en">AICC.vn automates CCCD capture, face matching, and liveness detection. Classifiers validate document authenticity and flag fraud signals instantly. Action Layer connects to CCCD verification APIs and biometric systems. Compliance Guardrails enforce PII handling requirements throughout. Completion in minutes, not days.</span>
+                    <span class="vi">AICC.vn tự động hóa thu thập CCCD, đối chiếu khuôn mặt và phát hiện sự sống thực. Classifiers xác thực tính xác thực của tài liệu và gắn cờ tín hiệu gian lận ngay lập tức. Action Layer kết nối đến API xác minh CCCD và hệ thống sinh trắc. Compliance Guardrails áp dụng yêu cầu xử lý PII xuyên suốt. Hoàn thành trong vài phút, không phải vài ngày.</span>
+                </p>
+                <div class="built-on-section">
+                    <div class="built-on-label"><span class="en">Built on AICC.vn's platform</span><span class="vi">Xây dựng trên nền tảng AICC.vn</span></div>
+                    <div class="built-on-tags">
+                        <a href="/components/#classifiers" class="built-on-tag primary">Classifiers</a>
+                        <a href="/components/#action-layer" class="built-on-tag primary">Action Layer</a>
+                        <a href="/components/#compliance-guardrails" class="built-on-tag primary">Compliance Guardrails</a>
+                        <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
+                        <a href="/components/#knowledge-rag" class="built-on-tag">Knowledge / RAG</a>
+                        <a href="/components/#channel-adapters" class="built-on-tag">Channel Adapters</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Category 2: AI Copilot ── -->
+    <div class="category-header" id="ai-copilot">
+        <div class="category-header-label"><span class="en">Category 2 of 3</span><span class="vi">Danh mục 2 / 3</span></div>
+        <h2><span class="en">AI Copilot</span><span class="vi">AI Copilot</span></h2>
+        <p><span class="en">Real-time AI assist for live agents — surfacing answers, compliance cues, and next-best actions during every call.</span><span class="vi">Hỗ trợ AI thời gian thực cho tổng đài viên — cung cấp câu trả lời, cảnh báo tuân thủ và hành động tốt nhất tiếp theo.</span></p>
+    </div>
+
     <!-- 5. AI Agent Copilot -->
     <div class="product-detail fade-in" id="agent-copilot">
         <div class="product-detail-header">
@@ -569,92 +619,7 @@
         </div>
     </div>
 
-    <!-- 6. AI Onboarding & eKYC -->
-    <div class="product-detail fade-in" id="onboarding-ekyc">
-        <div class="product-detail-header">
-            <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.18), rgba(253,121,168,0.06));">🪪</div>
-            <div class="product-detail-title">
-                <h3><span class="en">AI Onboarding &amp; eKYC</span><span class="vi">AI Onboarding &amp; eKYC</span></h3>
-                <div class="product-caps">
-                    <span class="product-cap-tag primary"><span class="en">Inbound AI</span><span class="vi">AI Tiếp nhận</span></span>
-                    <span class="product-cap-tag secondary"><span class="en">AI Orchestration</span><span class="vi">Điều phối AI</span></span>
-                </div>
-            </div>
-        </div>
-        <div class="product-detail-content">
-            <div class="problem-block">
-                <h4><span class="en">The Problem</span><span class="vi">Vấn đề</span></h4>
-                <p>
-                    <span class="en">Manual KYC takes 3–7 days, involves document handling, and creates friction at the critical onboarding moment. Fraud risks increase when document validation is human-dependent.</span>
-                    <span class="vi">KYC thủ công mất 3–7 ngày, liên quan đến xử lý tài liệu và tạo ma sát vào thời điểm onboarding quan trọng. Rủi ro gian lận tăng khi xác thực tài liệu phụ thuộc vào con người.</span>
-                </p>
-            </div>
-            <div class="solution-block">
-                <h4><span class="en">The Solution</span><span class="vi">Giải pháp</span></h4>
-                <p>
-                    <span class="en">AICC.vn automates CCCD capture, face matching, and liveness detection. Classifiers validate document authenticity and flag fraud signals instantly. Action Layer connects to CCCD verification APIs and biometric systems. Compliance Guardrails enforce PII handling requirements throughout. Completion in minutes, not days.</span>
-                    <span class="vi">AICC.vn tự động hóa thu thập CCCD, đối chiếu khuôn mặt và phát hiện sự sống thực. Classifiers xác thực tính xác thực của tài liệu và gắn cờ tín hiệu gian lận ngay lập tức. Action Layer kết nối đến API xác minh CCCD và hệ thống sinh trắc. Compliance Guardrails áp dụng yêu cầu xử lý PII xuyên suốt. Hoàn thành trong vài phút, không phải vài ngày.</span>
-                </p>
-                <div class="built-on-section">
-                    <div class="built-on-label"><span class="en">Built on AICC.vn's platform</span><span class="vi">Xây dựng trên nền tảng AICC.vn</span></div>
-                    <div class="built-on-tags">
-                        <a href="/components/#classifiers" class="built-on-tag primary">Classifiers</a>
-                        <a href="/components/#action-layer" class="built-on-tag primary">Action Layer</a>
-                        <a href="/components/#compliance-guardrails" class="built-on-tag primary">Compliance Guardrails</a>
-                        <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
-                        <a href="/components/#knowledge-rag" class="built-on-tag">Knowledge / RAG</a>
-                        <a href="/components/#channel-adapters" class="built-on-tag">Channel Adapters</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 7. AI Fraud Detection -->
-    <div class="product-detail fade-in" id="fraud-detection">
-        <div class="product-detail-header">
-            <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">🛡️</div>
-            <div class="product-detail-title">
-                <h3><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></h3>
-                <div class="product-caps">
-                    <span class="product-cap-tag primary"><span class="en">Outbound AI</span><span class="vi">AI Gọi ra</span></span>
-                    <span class="product-cap-tag secondary"><span class="en">QAQC &amp; Compliance</span><span class="vi">QA &amp; Tuân thủ</span></span>
-                    <span class="product-cap-tag secondary"><span class="en">Conversation Intelligence</span><span class="vi">Thông minh Hội thoại</span></span>
-                </div>
-            </div>
-        </div>
-        <div class="product-detail-content">
-            <div class="problem-block">
-                <h4><span class="en">The Problem</span><span class="vi">Vấn đề</span></h4>
-                <p>
-                    <span class="en">Fraud patterns in Vietnamese financial services are increasingly sophisticated — synthetic identities, social engineering calls, and document forgery. Detecting them requires cross-channel pattern matching at speed.</span>
-                    <span class="vi">Các mô hình gian lận trong dịch vụ tài chính Việt Nam ngày càng tinh vi — danh tính tổng hợp, cuộc gọi kỹ thuật xã hội và làm giả tài liệu. Phát hiện chúng đòi hỏi khớp mô hình đa kênh với tốc độ cao.</span>
-                </p>
-            </div>
-            <div class="solution-block">
-                <h4><span class="en">The Solution</span><span class="vi">Giải pháp</span></h4>
-                <p>
-                    <span class="en">Classifiers analyze voice calls and transaction data simultaneously, flagging suspicious behavioral patterns in real time. Action Layer triggers verification workflows instantly — no human queuing. Voice Engine powers outbound verification calls. All decisions are logged with Compliance Guardrails for regulatory auditability.</span>
-                    <span class="vi">Classifiers phân tích cuộc gọi thoại và dữ liệu giao dịch đồng thời, gắn cờ các mô hình hành vi đáng ngờ theo thời gian thực. Action Layer kích hoạt quy trình xác minh ngay lập tức — không cần xếp hàng thủ công. Voice Engine hỗ trợ cuộc gọi xác minh outbound. Tất cả quyết định được ghi lại với Compliance Guardrails để kiểm toán pháp quy.</span>
-                </p>
-                <div class="built-on-section">
-                    <div class="built-on-label"><span class="en">Built on AICC.vn's platform</span><span class="vi">Xây dựng trên nền tảng AICC.vn</span></div>
-                    <div class="built-on-tags">
-                        <a href="/components/#voice-engine" class="built-on-tag primary">Voice Engine</a>
-                        <a href="/components/#classifiers" class="built-on-tag primary">Classifiers</a>
-                        <a href="/components/#action-layer" class="built-on-tag primary">Action Layer</a>
-                        <a href="/components/#channel-adapters" class="built-on-tag primary">Channel Adapters</a>
-                        <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
-                        <a href="/components/#financial-llm" class="built-on-tag">Financial LLM</a>
-                        <a href="/components/#compliance-guardrails" class="built-on-tag">Compliance Guardrails</a>
-                        <a href="/components/#qa-analytics" class="built-on-tag">QA &amp; Analytics</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 8. AI Market Insight Assistant -->
+    <!-- 6. AI Market Insight Assistant -->
     <div class="product-detail fade-in" id="market-insight">
         <div class="product-detail-header">
             <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(0,206,201,0.18), rgba(0,206,201,0.06));">📈</div>
@@ -698,7 +663,7 @@
         </div>
     </div>
 
-    <!-- 9. AI Sales Preparation Assistant -->
+    <!-- 7. AI Sales Preparation Assistant -->
     <div class="product-detail fade-in" id="sales-prep">
         <div class="product-detail-header">
             <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(253,121,168,0.18), rgba(253,121,168,0.06));">🎯</div>
@@ -735,6 +700,98 @@
                         <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
                         <a href="/components/#classifiers" class="built-on-tag">Classifiers</a>
                         <a href="/components/#action-layer" class="built-on-tag">Action Layer</a>
+                        <a href="/components/#compliance-guardrails" class="built-on-tag">Compliance Guardrails</a>
+                        <a href="/components/#qa-analytics" class="built-on-tag">QA &amp; Analytics</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Category 3: AI Intelligence ── -->
+    <div class="category-header" id="ai-intelligence">
+        <div class="category-header-label"><span class="en">Category 3 of 3</span><span class="vi">Danh mục 3 / 3</span></div>
+        <h2><span class="en">AI Intelligence</span><span class="vi">AI Intelligence</span></h2>
+        <p><span class="en">QA, compliance monitoring, and fraud detection across 100% of interactions — automatically, without manual review.</span><span class="vi">QA, giám sát tuân thủ và phát hiện gian lận trên 100% tương tác — tự động, không cần kiểm tra thủ công.</span></p>
+    </div>
+
+    <!-- 8. AI QA & Compliance Monitor -->
+    <div class="product-detail fade-in" id="qa-compliance-monitor">
+        <div class="product-detail-header">
+            <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">🎧</div>
+            <div class="product-detail-title">
+                <h3><span class="en">AI QA &amp; Compliance Monitor</span><span class="vi">AI Giám sát QA &amp; Tuân thủ</span></h3>
+                <div class="product-caps">
+                    <span class="product-cap-tag primary"><span class="en">QAQC &amp; Compliance</span><span class="vi">QA &amp; Tuân thủ</span></span>
+                    <span class="product-cap-tag secondary"><span class="en">Conversation Intelligence</span><span class="vi">Thông minh Hội thoại</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="product-detail-content">
+            <div class="problem-block">
+                <h4><span class="en">The Problem</span><span class="vi">Vấn đề</span></h4>
+                <p>
+                    <span class="en">Banks and insurers manually review 2–5% of calls. That means 95%+ of agent conversations — and potential Circular 67 violations — go unmonitored. Fines and reputational damage compound over time.</span>
+                    <span class="vi">Ngân hàng và công ty bảo hiểm kiểm tra thủ công 2–5% cuộc gọi. Điều đó có nghĩa là 95%+ cuộc trò chuyện của tổng đài viên — và các vi phạm Thông tư 67 tiềm ẩn — không được giám sát. Phạt và thiệt hại danh tiếng tích lũy theo thời gian.</span>
+                </p>
+            </div>
+            <div class="solution-block">
+                <h4><span class="en">The Solution</span><span class="vi">Giải pháp</span></h4>
+                <p>
+                    <span class="en">AICC.vn scores every call automatically. Voice Engine transcribes 100% of recordings; Classifiers detect violations, sentiment, and coaching moments; Compliance Guardrails enforce Circular 67 disclosure rules in real time. Supervisors review exceptions — not entire queues.</span>
+                    <span class="vi">AICC.vn chấm điểm mọi cuộc gọi tự động. Voice Engine phiên âm 100% bản ghi âm; Classifiers phát hiện vi phạm, cảm xúc và cơ hội coaching; Compliance Guardrails áp dụng quy tắc công bố Thông tư 67 theo thời gian thực. Giám sát viên xem xét ngoại lệ — không phải toàn bộ hàng đợi.</span>
+                </p>
+                <div class="built-on-section">
+                    <div class="built-on-label"><span class="en">Built on AICC.vn's platform</span><span class="vi">Xây dựng trên nền tảng AICC.vn</span></div>
+                    <div class="built-on-tags">
+                        <a href="/components/#qa-analytics" class="built-on-tag primary">QA &amp; Analytics</a>
+                        <a href="/components/#voice-engine" class="built-on-tag">Voice Engine</a>
+                        <a href="/components/#classifiers" class="built-on-tag">Classifiers</a>
+                        <a href="/components/#compliance-guardrails" class="built-on-tag">Compliance Guardrails</a>
+                        <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
+                        <a href="/components/#knowledge-rag" class="built-on-tag">Knowledge / RAG</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. AI Fraud Detection -->
+    <div class="product-detail fade-in" id="fraud-detection">
+        <div class="product-detail-header">
+            <div class="product-detail-icon" style="background: linear-gradient(135deg, rgba(108,92,231,0.18), rgba(108,92,231,0.06));">🛡️</div>
+            <div class="product-detail-title">
+                <h3><span class="en">AI Fraud Detection</span><span class="vi">AI Phát hiện Gian lận</span></h3>
+                <div class="product-caps">
+                    <span class="product-cap-tag primary"><span class="en">Outbound AI</span><span class="vi">AI Gọi ra</span></span>
+                    <span class="product-cap-tag secondary"><span class="en">QAQC &amp; Compliance</span><span class="vi">QA &amp; Tuân thủ</span></span>
+                    <span class="product-cap-tag secondary"><span class="en">Conversation Intelligence</span><span class="vi">Thông minh Hội thoại</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="product-detail-content">
+            <div class="problem-block">
+                <h4><span class="en">The Problem</span><span class="vi">Vấn đề</span></h4>
+                <p>
+                    <span class="en">Fraud patterns in Vietnamese financial services are increasingly sophisticated — synthetic identities, social engineering calls, and document forgery. Detecting them requires cross-channel pattern matching at speed.</span>
+                    <span class="vi">Các mô hình gian lận trong dịch vụ tài chính Việt Nam ngày càng tinh vi — danh tính tổng hợp, cuộc gọi kỹ thuật xã hội và làm giả tài liệu. Phát hiện chúng đòi hỏi khớp mô hình đa kênh với tốc độ cao.</span>
+                </p>
+            </div>
+            <div class="solution-block">
+                <h4><span class="en">The Solution</span><span class="vi">Giải pháp</span></h4>
+                <p>
+                    <span class="en">Classifiers analyze voice calls and transaction data simultaneously, flagging suspicious behavioral patterns in real time. Action Layer triggers verification workflows instantly — no human queuing. Voice Engine powers outbound verification calls. All decisions are logged with Compliance Guardrails for regulatory auditability.</span>
+                    <span class="vi">Classifiers phân tích cuộc gọi thoại và dữ liệu giao dịch đồng thời, gắn cờ các mô hình hành vi đáng ngờ theo thời gian thực. Action Layer kích hoạt quy trình xác minh ngay lập tức — không cần xếp hàng thủ công. Voice Engine hỗ trợ cuộc gọi xác minh outbound. Tất cả quyết định được ghi lại với Compliance Guardrails để kiểm toán pháp quy.</span>
+                </p>
+                <div class="built-on-section">
+                    <div class="built-on-label"><span class="en">Built on AICC.vn's platform</span><span class="vi">Xây dựng trên nền tảng AICC.vn</span></div>
+                    <div class="built-on-tags">
+                        <a href="/components/#voice-engine" class="built-on-tag primary">Voice Engine</a>
+                        <a href="/components/#classifiers" class="built-on-tag primary">Classifiers</a>
+                        <a href="/components/#action-layer" class="built-on-tag primary">Action Layer</a>
+                        <a href="/components/#channel-adapters" class="built-on-tag primary">Channel Adapters</a>
+                        <a href="/components/#orchestrator" class="built-on-tag">Orchestrator</a>
+                        <a href="/components/#financial-llm" class="built-on-tag">Financial LLM</a>
                         <a href="/components/#compliance-guardrails" class="built-on-tag">Compliance Guardrails</a>
                         <a href="/components/#qa-analytics" class="built-on-tag">QA &amp; Analytics</a>
                     </div>
