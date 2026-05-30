@@ -88,44 +88,46 @@
         .quick-nav {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto 80px;
             padding: 0 24px;
-            background: var(--border);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
         }
         @media (max-width: 640px) {
             .quick-nav { grid-template-columns: 1fr; }
+            .quick-nav-group { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; }
+            .quick-nav-group:last-child { border-bottom: none; }
         }
         .quick-nav-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding: 20px 22px;
-            background: var(--bg-secondary);
+            align-items: center;
+            gap: 12px;
+            padding: 0 28px;
+            border-right: 1px solid var(--border);
+            text-align: center;
         }
+        .quick-nav-group:first-child { padding-left: 0; }
+        .quick-nav-group:last-child { border-right: none; padding-right: 0; }
         .quick-nav-category {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             color: var(--accent-light);
             text-decoration: none;
         }
-        .quick-nav-category:hover { opacity: 0.8; }
+        .quick-nav-category:hover { opacity: 0.75; }
         .quick-nav-pills {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
+            justify-content: center;
         }
         .quick-nav-pills a {
             font-size: 0.76rem;
             font-weight: 500;
             padding: 4px 12px;
-            background: var(--bg-card, var(--bg-primary));
+            background: transparent;
             border: 1px solid var(--border);
             border-radius: 100px;
             color: var(--text-secondary);
