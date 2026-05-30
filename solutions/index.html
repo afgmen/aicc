@@ -86,50 +86,46 @@
 
         /* Quick nav */
         .quick-nav {
-            display: flex;
-            gap: 0;
-            justify-content: center;
-            max-width: 960px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            max-width: 900px;
             margin: 0 auto 80px;
             padding: 0 24px;
-            flex-wrap: wrap;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        @media (max-width: 640px) {
+            .quick-nav { grid-template-columns: 1fr; }
         }
         .quick-nav-group {
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-            padding: 0 28px;
-            border-right: 1px solid var(--border);
-        }
-        .quick-nav-group:first-child { padding-left: 0; }
-        .quick-nav-group:last-child { border-right: none; padding-right: 0; }
-        @media (max-width: 768px) {
-            .quick-nav { flex-direction: column; gap: 16px; }
-            .quick-nav-group { padding: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
-            .quick-nav-group:last-child { border-bottom: none; padding-bottom: 0; }
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px 22px;
+            background: var(--bg-secondary);
         }
         .quick-nav-category {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 6px 14px;
-            background: rgba(108,92,231,0.08);
-            border: 1px solid rgba(108,92,231,0.2);
-            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: var(--accent-light);
             text-decoration: none;
-            transition: color 0.2s, border-color 0.2s, background 0.2s;
-            white-space: nowrap;
         }
-        .quick-nav-category:hover {
-            background: rgba(108,92,231,0.15);
-            border-color: rgba(108,92,231,0.35);
+        .quick-nav-category:hover { opacity: 0.8; }
+        .quick-nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
         }
-        .quick-nav a:not(.quick-nav-category) {
-            font-size: 0.78rem;
+        .quick-nav-pills a {
+            font-size: 0.76rem;
             font-weight: 500;
-            padding: 6px 14px;
-            background: var(--bg-secondary);
+            padding: 4px 12px;
+            background: var(--bg-card, var(--bg-primary));
             border: 1px solid var(--border);
             border-radius: 100px;
             color: var(--text-secondary);
@@ -137,7 +133,7 @@
             transition: color 0.2s, border-color 0.2s, background 0.2s;
             white-space: nowrap;
         }
-        .quick-nav a:not(.quick-nav-category):hover {
+        .quick-nav-pills a:hover {
             color: var(--accent-light);
             border-color: rgba(162,155,254,0.3);
             background: rgba(108,92,231,0.05);
@@ -410,21 +406,27 @@
 <div class="quick-nav" role="navigation" aria-label="Product navigation">
     <div class="quick-nav-group">
         <a href="#ai-voice-agents" class="quick-nav-category"><span class="en">AI Voice &amp; Chat Agents</span><span class="vi">AI Voice &amp; Chat</span></a>
-        <a href="#policy-servicing"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
-        <a href="#claims-assistant"><span class="en">Claims</span><span class="vi">Bồi thường</span></a>
-        <a href="#payment-support"><span class="en">Payment</span><span class="vi">Thanh toán</span></a>
-        <a href="#onboarding-ekyc"><span class="en">eKYC</span><span class="vi">eKYC</span></a>
+        <div class="quick-nav-pills">
+            <a href="#policy-servicing"><span class="en">Policy Servicing</span><span class="vi">Phục vụ Hợp đồng</span></a>
+            <a href="#claims-assistant"><span class="en">Claims</span><span class="vi">Bồi thường</span></a>
+            <a href="#payment-support"><span class="en">Payment</span><span class="vi">Thanh toán</span></a>
+            <a href="#onboarding-ekyc"><span class="en">eKYC</span><span class="vi">eKYC</span></a>
+        </div>
     </div>
     <div class="quick-nav-group">
         <a href="#ai-copilot" class="quick-nav-category"><span class="en">AI Copilot</span><span class="vi">AI Copilot</span></a>
-        <a href="#agent-copilot"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài viên</span></a>
-        <a href="#market-insight"><span class="en">Market Insight</span><span class="vi">Thị trường</span></a>
-        <a href="#sales-prep"><span class="en">Sales Prep</span><span class="vi">Chuẩn bị Bán hàng</span></a>
+        <div class="quick-nav-pills">
+            <a href="#agent-copilot"><span class="en">Agent Copilot</span><span class="vi">Copilot Tổng đài viên</span></a>
+            <a href="#market-insight"><span class="en">Market Insight</span><span class="vi">Thị trường</span></a>
+            <a href="#sales-prep"><span class="en">Sales Prep</span><span class="vi">Chuẩn bị Bán hàng</span></a>
+        </div>
     </div>
     <div class="quick-nav-group">
         <a href="#ai-intelligence" class="quick-nav-category"><span class="en">AI Intelligence</span><span class="vi">AI Intelligence</span></a>
-        <a href="#qa-compliance-monitor"><span class="en">QA Monitor</span><span class="vi">Giám sát QA</span></a>
-        <a href="#fraud-detection"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
+        <div class="quick-nav-pills">
+            <a href="#qa-compliance-monitor"><span class="en">QA Monitor</span><span class="vi">Giám sát QA</span></a>
+            <a href="#fraud-detection"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
+        </div>
     </div>
 </div>
 
