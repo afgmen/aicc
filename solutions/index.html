@@ -85,48 +85,55 @@
         }
 
         /* Quick nav */
+        .quick-nav-wrapper {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin: 0 auto 80px;
+            padding: 36px 24px;
+            max-width: 100%;
+        }
         .quick-nav {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             max-width: 860px;
-            margin: 0 auto 80px;
-            padding: 0 24px;
+            margin: 0 auto;
         }
         @media (max-width: 640px) {
             .quick-nav { grid-template-columns: 1fr; }
-            .quick-nav-group { border-right: none; border-bottom: 1px solid var(--border); padding: 20px 0; }
-            .quick-nav-group:last-child { border-bottom: none; }
+            .quick-nav-group { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 0; }
+            .quick-nav-group:last-child { border-bottom: none; padding-bottom: 0; }
+            .quick-nav-group:first-child { padding-top: 0; }
         }
         .quick-nav-group {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            padding: 0 28px;
+            gap: 14px;
+            padding: 0 32px;
             border-right: 1px solid var(--border);
             text-align: center;
         }
         .quick-nav-group:first-child { padding-left: 0; }
         .quick-nav-group:last-child { border-right: none; padding-right: 0; }
         .quick-nav-category {
-            font-size: 0.72rem;
+            font-size: 1rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--accent-light);
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
             text-decoration: none;
+            transition: color 0.2s;
         }
-        .quick-nav-category:hover { opacity: 0.75; }
+        .quick-nav-category:hover { color: var(--accent-light); }
         .quick-nav-pills {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
             justify-content: center;
         }
         .quick-nav-pills a {
-            font-size: 0.76rem;
+            font-size: 0.83rem;
             font-weight: 500;
-            padding: 4px 12px;
+            padding: 6px 16px;
             background: transparent;
             border: 1px solid var(--border);
             border-radius: 100px;
@@ -405,6 +412,7 @@
 </div>
 
 <!-- Quick Nav -->
+<div class="quick-nav-wrapper">
 <div class="quick-nav" role="navigation" aria-label="Product navigation">
     <div class="quick-nav-group">
         <a href="#ai-voice-agents" class="quick-nav-category"><span class="en">AI Voice &amp; Chat Agents</span><span class="vi">AI Voice &amp; Chat</span></a>
@@ -430,6 +438,7 @@
             <a href="#fraud-detection"><span class="en">Fraud Detection</span><span class="vi">Phát hiện Gian lận</span></a>
         </div>
     </div>
+</div>
 </div>
 
 <!-- Products -->
